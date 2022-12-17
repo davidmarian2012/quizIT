@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="logo-shell">
+        <img src="../../../../../assets/4.png" alt="">
+        <h3>A thrilling trivia game for tech enthusiasts</h3>
+    </div>
+    
+    <div [formGroup]="form" class="login-container">
+        <div class="login-row">
+            <label for="username">Username:</label>
+            <input type="text" formControlName="username">
+        </div>
+        <div class="login-row">
+            <label for="email">Email:</label>
+            <input formControlName="email">
+        </div>
+        <div class="login-row">
+            <label for="password">Password:</label>
+            <input type="password" formControlName="password">
+        </div>
+        <div class="login-row">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" formControlName="confirmPassword">
+        </div>
+        <div class="buttons-container">
+            <button type="button" class="login-btn">Create account</button>
+            <button type="button" class="create-btn" routerLink="/login">I already have an account</button>
+        </div>
+    </div>
+</div>

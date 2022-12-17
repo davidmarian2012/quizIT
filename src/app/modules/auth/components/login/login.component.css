@@ -1,0 +1,85 @@
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+    background: url('../../../../../assets/b.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.logo-shell{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container{
+    background-color: rgb(236, 233, 233);
+    padding: 80px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 3px;
+}
+
+.login-row{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    gap: 3px;
+    font-weight: 700;
+}
+
+input{
+    height: 35px;
+    width: 225px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.buttons-container{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.login-btn{
+    cursor: pointer;
+    height: 35px;
+    width: 225px;
+    border-radius: 3px;
+    border: 0;
+    font-weight: 700;
+    background-color: rgb(69, 118, 75);
+    color: rgb(237, 231, 231);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.login-btn:hover{
+    background-color: rgb(80, 136, 86);
+}
+
+.create-btn{
+    cursor: pointer;
+    height: 35px;
+    width: 225px;
+    border-radius: 3px;
+    font-weight: 700;
+    background-color: rgb(236, 233, 233);
+    border: 2px solid rgb(69, 118, 75);
+    color:  rgb(69, 118, 75);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.create-btn:hover{
+    border: 2px solid rgb(80, 136, 86);
+    color: rgb(80, 136, 86);
+}
