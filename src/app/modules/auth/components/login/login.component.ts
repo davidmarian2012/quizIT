@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { first } from 'rxjs';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +24,14 @@ export class LoginComponent implements OnInit {
       Validators.required
     ])
   })
+
+  loginUser(): void{
+    this.authService.login(this.form.value)
+      .pipe(first()).subscribe(
+        () => {
+          this.router.navigate(['/dashboard']);
+        }
+      );
+  }
 
 }

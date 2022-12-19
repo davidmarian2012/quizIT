@@ -8,13 +8,17 @@
         <div class="login-row">
             <label for="username">Username:</label>
             <input type="text" formControlName="username">
+
+            <div class="error-message"></div>
         </div>
         <div class="login-row">
             <label for="password">Password:</label>
             <input type="password" formControlName="password">
+
+            <div class="error-message"></div>
         </div>
         <div class="buttons-container">
-            <button type="button" class="login-btn" routerLink="/dashboard">Login</button>
+            <button type="button" class="login-btn" (click)="loginUser()">Login</button>
             <button type="button" class="create-btn" routerLink="/register">Create a new account</button>
         </div>
     </div>
