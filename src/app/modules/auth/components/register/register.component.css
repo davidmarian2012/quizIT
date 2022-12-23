@@ -61,6 +61,7 @@ input{
     background-color: rgb(69, 118, 75);
     color: rgb(237, 231, 231);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 0.2s;
 }
 
 .login-btn:hover{
@@ -77,6 +78,7 @@ input{
     border: 2px solid rgb(69, 118, 75);
     color:  rgb(80, 136, 86);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 0.2s;
 }
 
 .create-btn:hover{
