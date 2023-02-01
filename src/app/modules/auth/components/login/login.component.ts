@@ -11,6 +11,8 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
+  wrongLogin: boolean = false;
+
   constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -28,7 +30,11 @@ export class LoginComponent implements OnInit {
   loginUser(): void{
     this.authService.login(this.form.value)
       .pipe(first()).subscribe(
+        user => {
+          console.log("hello");
+        },
         () => {
+          this.wrongLogin = true;
           this.router.navigate(['/dashboard']);
         }
       );
