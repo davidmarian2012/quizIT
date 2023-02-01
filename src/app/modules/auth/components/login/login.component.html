@@ -21,5 +21,6 @@
             <button type="button" class="login-btn" (click)="loginUser()">Login</button>
             <button type="button" class="create-btn" routerLink="/register">Create a new account</button>
         </div>
+        <div *ngIf="wrongLogin == true">Wrong username/password</div>
     </div>
 </div>

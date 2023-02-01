@@ -7,6 +7,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background: rgb(40,80,45);
+background: linear-gradient(45deg, rgba(40,80,45,1) 0%, rgba(90,152,99,1) 53%, rgba(90,152,99,1) 54%, rgba(97,150,113,1) 100%);
 }
 
 .play-btn{
