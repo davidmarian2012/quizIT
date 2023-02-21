@@ -1,4 +1,13 @@
 <div class="container">
     <app-header></app-header>
-    <button class="play-btn">Play</button>
+    <app-chat></app-chat>
+    <div class="middle-space" id="middle-space"></div>
+    <div class="game-modes">
+        <h2>Select type of game</h2>
+        <div class="game-btn" id="game-1" (click)="selectGame1()">Classic Mode</div>
+        <div class="game-btn" id="game-2" (click)="selectGame2()">Extended War</div>
+        <div class="game-btn" id="game-3" (click)="selectGame3()">Free for All</div>
+        <button class="play-btn">Play</button>
+    </div>
+    
 </div>

@@ -6,8 +6,8 @@
     
     <div [formGroup]="form" class="login-container">
         <div class="login-row">
-            <label for="username">Username:</label>
-            <input type="text" formControlName="username">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" placeholder="Enter your username">
             
             <div class="error-message">
                 <div *ngIf="form.controls['username'].errors?.['required'] && form.controls['username'].dirty">
@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="login-row">
-            <label for="email">Email:</label>
-            <input formControlName="email">
+            <label for="email">Email</label>
+            <input formControlName="email" placeholder="Enter your email">
 
             <div class="error-message">
                 <div *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].dirty">
@@ -35,8 +35,8 @@
             </div>
         </div>
         <div class="login-row">
-            <label for="password">Password:</label>
-            <input type="password" formControlName="password">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" placeholder="Enter your password">
 
             <div class="error-message">
                 <div *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].dirty">
@@ -51,8 +51,8 @@
             </div>
         </div>
         <div class="login-row">
-            <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" formControlName="confirmPassword">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" placeholder="Confirm your password">
 
             <div class="error-message">
                 <div *ngIf="form.controls['confirmPassword'].errors?.['required'] && form.controls['confirmPassword'].dirty">

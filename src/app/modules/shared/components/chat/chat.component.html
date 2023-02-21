@@ -1,0 +1,17 @@
+<div class="chat-container">
+    <div class="message-row" *ngFor="let message of allMessages$ | async">
+        <div class="message-avatar">
+            <img src="../../../../../assets/avatar.png" alt="avatar" class="avatar-img">
+        </div>
+        
+        <div class="message-details">
+            <h3>{{message.author}}</h3>
+            <div class="message-box">{{message.content}}</div>
+        </div>
+    </div>
+
+    <div class="write-section" [formGroup]="form">
+        <textarea placeholder="Write here..." formControlName="content"></textarea>
+        <img src="../../../../../assets/send-icon.jpg" alt="send" (click)="sendMessage()">
+    </div>
+</div>

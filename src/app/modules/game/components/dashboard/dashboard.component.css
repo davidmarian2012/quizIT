@@ -2,26 +2,76 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 100px;
     align-items: center;
+    background: url('../../../../../assets/b.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background: rgb(40,80,45);
-background: linear-gradient(45deg, rgba(40,80,45,1) 0%, rgba(90,152,99,1) 53%, rgba(90,152,99,1) 54%, rgba(97,150,113,1) 100%);
+}
+
+app-chat{
+    position: absolute;
+    left: 0;
+    top: 10vh;
 }
 
 .play-btn{
-    display: flex;
     cursor: pointer;
+    height: 100px;
+    width: 100%;
+    border: 0;
+    font-weight: 700;
+    background-color: rgb(69, 118, 75);
+    color: rgb(237, 231, 231);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 0.2s;
+    position: absolute;
+    bottom: 0;
+    font-size: 30px;
+}
+
+.middle-space{
+    height: 90vh;
+    background-color: rgb(49, 49, 49);
+    width: 60vw;
+}
+
+.play-btn:hover{
+    background-color: rgb(59, 99, 63);
+}
+
+.game-modes{
+    background-color: rgb(236, 233, 233);
+    width: 20vw;
+    padding: 50px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    width: 300px;
-    background-color: rgb(98, 151, 98);
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 20px;
-    font-family: 'Comic Sans MS';
+    flex-direction: column;
+    gap: 60px;
+    height: 90vh;
+    position: absolute;
+    right: 0;
+    top: 10vh;
+}
+
+.game-modes h2{
+    font-size: 20px;
+}
+
+.game-btn{
+    width: 15vw;
+    height: 70px;
+    color: #fff;
+    background-color: rgb(38, 58, 65);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: 700;
-    font-size: 70px;
+    font-size: 14px;
+    transition: 0.3s;
 }
