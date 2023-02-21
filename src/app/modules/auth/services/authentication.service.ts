@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
+  isAuthenticated: boolean = false;
+
   constructor(private httpService: HttpService, private router: Router) { }
 
   register(userInput: any): Observable<any> {
@@ -34,6 +36,7 @@ export class AuthenticationService {
   }
 
   login(userInput: any): Observable<any>{
+
     const newUser = {
       "username": userInput.username,
       "password": userInput.password,

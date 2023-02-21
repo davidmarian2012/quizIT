@@ -1,0 +1,96 @@
+.chat-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 90vh;
+    background-color: rgb(49, 49, 49);
+    width: 20vw;
+    gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.message-row{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.message-avatar{
+    width: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.avatar-img{
+    width: 40px;
+    height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 50%;
+}
+
+.message-details{
+    width: 17vw;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.message-details h3{
+    font-size: 14px;
+    color: #fff;
+}
+
+.message-box{
+    background-color: rgb(216, 216, 216);
+    font-size: 12px;
+    max-width: 16vw;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    min-height: 3vh;
+    display: flex;
+    align-items: center;
+}
+
+.write-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.write-section img{
+    width: 30px;
+    height: auto;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+textarea{
+    display: flex;
+    width: 20vw;
+    height: 100px;
+    padding: 10px;
+    border: 0;
+    resize: none;
+    background-color: rgb(221, 221, 221);
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.send-btn{
+    cursor: pointer;
+    height: 35px;
+    width: 20vw;
+    border: 0;
+    font-weight: 700;
+    background-color: rgb(69, 98, 118);
+    color: #fff;
+}

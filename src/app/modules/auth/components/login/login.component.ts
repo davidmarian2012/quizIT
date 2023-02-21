@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   })
 
   loginUser(): void{
+    
     this.authService.login(this.form.value)
       .pipe(first()).subscribe(
         user => {
