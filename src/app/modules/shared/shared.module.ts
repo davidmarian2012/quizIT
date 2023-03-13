@@ -4,11 +4,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    ChatComponent
+    ChatComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports:[
     HeaderComponent,
-    ChatComponent
+    ChatComponent,
+    ProfileComponent
   ]
 })
 export class SharedModule { }

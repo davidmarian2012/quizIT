@@ -1,6 +1,11 @@
 <header>
-    <a>Profile</a>
-    <a>Rankings</a>
-    <a>News</a>
-    <a (click)="logout()">Logout</a>
+    <div class="logo-shell">
+        <img src="../../../../../assets/4.png" alt="logo" routerLink="/dashboard">
+    </div>
+    <div class="links">
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/q">Rankings</a>
+        <a>News</a>
+        <a (click)="logout()">Logout</a>
+    </div>
 </header>

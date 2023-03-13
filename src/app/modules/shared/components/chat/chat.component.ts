@@ -10,7 +10,8 @@ import { ChatService } from '../../services/chat.service';
 })
 export class ChatComponent implements OnInit {
 
-  messages: any[] = [{author: 'yea', 'content': 'content'}];
+  messages: any[] = [{author: 'yea', content: 'content'}];
+  public messages$: Observable<any>;
 
   form = new FormGroup({
     content: new FormControl('', [
@@ -18,10 +19,10 @@ export class ChatComponent implements OnInit {
     ])
   })
 
-  constructor(private chatService: ChatService) { 
-  }
+  constructor(private chatService: ChatService) { this.messages$ = this.chatService.getAllMessages(); }
 
   ngOnInit(): void {
+    this.messages$ = this.chatService.getAllMessages();
   }
 
   sendMessage(): any{
@@ -32,7 +33,7 @@ export class ChatComponent implements OnInit {
       this.chatService.saveMessage(comm)
       .pipe(first()).subscribe(
         () => {
-          console.log('hey');
+          console.log(comm);
         }
       );
 
@@ -40,16 +41,7 @@ export class ChatComponent implements OnInit {
       this.form.reset();
     }
 
-    this.chatService.getAllMessages().subscribe(
-      {
-        next(val){
-          console.log(val.messages);
-        },
-        error(msg){
-          console.log(msg);
-        }
-      }
-    )
+    
   }
 
 }
