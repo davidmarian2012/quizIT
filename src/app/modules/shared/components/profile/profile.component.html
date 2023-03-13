@@ -1,0 +1,40 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="title-page">
+        <h3>Your profile</h3>
+    </div>
+    
+    <div [formGroup]="form" class="login-container">
+        <h2>David</h2>
+        <div class="login-row">
+            <label for="username">Member since</label>
+            <label for="username" class="small-label">22.04.2019</label>
+        </div>
+
+        <div class="login-row">
+            <label for="username">Rank</label>
+            <label for="username" class="small-label">Magic Geek</label>
+        </div>
+
+        <div class="login-row">
+            <label for="username">Points</label>
+            <label for="username" class="small-label">7546</label>
+        </div>
+
+        <div class="login-row">
+            <label for="username">Password</label>
+            <input type="password" formControlName="oldpassword" placeholder="Enter your old password">
+
+            <div class="error-message"></div>
+        </div>
+        <div class="login-row">
+            <label for="password">New Password</label>
+            <input type="password" formControlName="newpassword" placeholder="Enter a new password">
+
+            <div class="error-message"></div>
+        </div>
+        <div class="buttons-container">
+            <button type="button" class="login-btn">Change password</button>
+        </div>
+    </div>
+</div>

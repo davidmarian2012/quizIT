@@ -2,14 +2,17 @@ header{
     width: 100vw;
     height: 10vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-weight: 700;
-    background-color: rgba(158, 154, 154, 0.842);
+}
+
+.links{
+    margin-right: 100px;
 }
 
 a{
-    margin-right: 50px;
+    margin-left: 50px;
     cursor: pointer;
     color: #000;
     text-decoration: none;
@@ -17,4 +20,11 @@ a{
 
 a:hover{
     text-decoration: underline;
+}
+
+img{
+    width: 130px;
+    height: auto;
+    margin-left: 100px;
+    cursor: pointer;
 }
