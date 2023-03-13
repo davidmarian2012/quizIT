@@ -4,12 +4,14 @@ import { LoginComponent } from './modules/auth/components/login/login.component'
 import { RegisterComponent } from './modules/auth/components/register/register.component';
 import { DashboardComponent } from './modules/game/components/dashboard/dashboard.component';
 import { ProfileComponent } from './modules/shared/components/profile/profile.component';
+import { QuestionComponent } from './modules/game/components/question/question.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'q', component: QuestionComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
