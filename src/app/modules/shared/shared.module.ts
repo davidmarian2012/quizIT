@@ -5,12 +5,14 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     ChatComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
   exports:[
     HeaderComponent,
     ChatComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoadingSpinnerComponent
   ]
 })
 export class SharedModule { }

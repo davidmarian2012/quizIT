@@ -7,24 +7,15 @@ header{
     font-weight: 700;
 }
 
-.links{
-    margin-right: 100px;
-}
-
-a{
-    margin-left: 50px;
+.link-box{
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    color: #000;
-    text-decoration: none;
-}
-
-a:hover{
-    text-decoration: underline;
-}
-
-img{
-    width: 130px;
-    height: auto;
-    margin-left: 100px;
-    cursor: pointer;
+    background: url('../../../../../assets/he.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }

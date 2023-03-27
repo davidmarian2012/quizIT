@@ -1,10 +1,12 @@
 <div class="container">
     <div class="logo-shell">
-        <img src="../../../../../assets/4.png" alt="">
-        <h3>A thrilling trivia game for tech enthusiasts</h3>
+        <img src="../../../../../assets/3.png" alt="">
+        <img src="../../../../../assets/ribbon-register.png" alt="ribbon" class="ribbon">
     </div>
+
+    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
     
-    <div [formGroup]="form" class="login-container">
+    <div [formGroup]="form" class="login-container" *ngIf="!loading">
         <div class="login-row">
             <label for="username">Username</label>
             <input type="text" formControlName="username" placeholder="Enter your username">
@@ -67,5 +69,7 @@
             <button type="submit" [disabled]="!form.valid" class="login-btn" (click)="registerUser()">Create account</button>
             <button type="button" class="create-btn" routerLink="/login">I already have an account</button>
         </div>
+        <div *ngIf="takenUsername" class="takenUsername">Username already taken</div>
+        <div *ngIf="takenEmail" class="takenEmail">Email already taken</div>
     </div>
 </div>

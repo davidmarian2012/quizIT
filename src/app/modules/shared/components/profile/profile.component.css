@@ -91,3 +91,16 @@ input{
     border: 2px solid rgb(80, 136, 86);
     color: rgb(80, 136, 86);
 }
+
+.avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+img{
+    width: 75px;
+    height: auto;
+}
