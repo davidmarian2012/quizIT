@@ -11,6 +11,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
+  loading: boolean = false;
   wrongLogin: boolean = false;
 
   constructor(private router: Router, private authService: AuthenticationService) { }
@@ -28,17 +29,25 @@ export class LoginComponent implements OnInit {
   })
 
   loginUser(): void{
-    
-    this.authService.login(this.form.value)
+    this.form.markAllAsTouched();
+
+    let username = this.form.get('username')?.value;
+    let password = this.form.get('password')?.value;
+
+    if(this.form.valid){
+      this.loading = true;
+
+      this.authService.login(username, password)
       .pipe(first()).subscribe(
         user => {
-          console.log("hello");
+          console.log(user);
+          this.router.navigate(['/dashboard']);
         },
         () => {
           this.wrongLogin = true;
-          this.router.navigate(['/dashboard']);
+          this.loading = false;
         }
       );
+    }
   }
-
 }

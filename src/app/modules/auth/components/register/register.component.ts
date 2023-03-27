@@ -11,6 +11,10 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class RegisterComponent implements OnInit {
 
+  takenUsername: boolean = false;
+  takenEmail: boolean = false;
+  loading: boolean = false;
+
   constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
@@ -38,12 +42,26 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     this.form.markAllAsTouched();
-    this.authService.register(this.form.value)
-    .pipe(first()).subscribe(
-      () => {
-        this.router.navigate(['/login']);
-      }
-    );
-  }
 
+    if(this.form.valid){
+      this.loading = true;
+
+      this.authService.register(this.form.value)
+      .pipe(first()).subscribe(
+        user => {
+          console.log(user);
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          this.loading = false;
+          if(error.errors[0].username) {
+            this.takenUsername = true;
+          }
+          else if(error.errors[0].email) {
+            this.takenEmail = true;
+          }
+        }
+      );
+    } 
+  }
 }

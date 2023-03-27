@@ -35,19 +35,19 @@ export class AuthenticationService {
     // })
   }
 
-  login(userInput: any): Observable<any>{
+  login(username: any, password: any): Observable<any>{
 
-    const newUser = {
-      "username": userInput.username,
-      "password": userInput.password,
-      "email": userInput.email
-    }
+    // const newUser = {
+    //   "username": userInput.username,
+    //   "password": userInput.password,
+    //   "email": userInput.email
+    // }
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
       url: '/user/login',
       options: {
-        body: newUser
+        body: {username: username, password: password}
       }
     });
 
