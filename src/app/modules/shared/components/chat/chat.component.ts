@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { first, Observable } from 'rxjs';
 import { ChatService } from '../../services/chat.service';
@@ -8,7 +8,7 @@ import { ChatService } from '../../services/chat.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterViewInit {
 
   messages: any[] = [{author: 'yea', content: 'content'}];
   public messages$: Observable<any>;
@@ -22,7 +22,13 @@ export class ChatComponent implements OnInit {
   constructor(private chatService: ChatService) { this.messages$ = this.chatService.getAllMessages(); }
 
   ngOnInit(): void {
+    const container = document.getElementById('chat-container') as HTMLDivElement;
+    container.scrollTop = container.scrollHeight;
+
     this.messages$ = this.chatService.getAllMessages();
+  }
+
+  ngAfterViewInit(): void {
   }
 
   sendMessage(): any{
@@ -33,15 +39,15 @@ export class ChatComponent implements OnInit {
       this.chatService.saveMessage(comm)
       .pipe(first()).subscribe(
         () => {
-          console.log(comm);
+          this.ngOnInit();
         }
       );
 
       this.messages.push(comm);
       this.form.reset();
+
+      const container = document.getElementById('chat-container') as HTMLDivElement;
+      container.scrollTop = container.scrollHeight;
     }
-
-    
   }
-
 }

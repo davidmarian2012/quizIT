@@ -1,12 +1,12 @@
 <div class="container">
     <app-header></app-header>
     <div class="title-page">
-        <h3>Your profile</h3>
+        <img src="../../../../../assets/ribbon-profile.png" alt="ribbon" class="ribbon">
     </div>
     
     <div [formGroup]="form" class="login-container">
         <div class="avatar"><img src="../../../../../assets/avatar.png" alt="avatar">
-            <h2>David</h2>
+            <h2>{{userValue.value.username}}</h2>
         </div>
         
         <div class="login-row">
@@ -16,7 +16,7 @@
 
         <div class="login-row">
             <label for="username">Rank</label>
-            <label for="username" class="small-label">Magic Geek</label>
+            <label for="username" class="small-label">{{playerRank}}</label>
         </div>
 
         <div class="login-row">

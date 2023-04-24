@@ -1,7 +1,20 @@
 <div class="container">
     <app-header></app-header>
     <app-chat></app-chat>
-    <div class="middle-space" id="middle-space"></div>
+
+    <div class="classic-mode-container" *ngIf="gameMode===1">
+        <img src="../../../../../assets/ribbon-classic.png" alt="ribbon" class="ribbon">
+        <h2>Rules</h2>
+        <h4>15 numerical questions</h4>
+        <h4>10 multi-answer questions</h4>
+    </div>
+    <div class="war-mode-container" *ngIf="gameMode===2">
+        <img src="../../../../../assets/ribbon-war.png" alt="ribbon" class="ribbon">
+    </div>
+    <div class="training-mode-container" *ngIf="gameMode===3">
+        <img src="../../../../../assets/ribbon-training.png" alt="ribbon" class="ribbon">
+    </div>
+
     <div class="game-modes">
         <h2>Select type of game</h2>
         <div class="game-btn" id="game-1" (click)="selectGame1()">Classic</div>

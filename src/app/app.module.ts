@@ -8,6 +8,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { GameModule } from './modules/game/game.module';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './modules/core/core.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     AuthModule,
     GameModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

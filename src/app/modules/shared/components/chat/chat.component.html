@@ -1,4 +1,4 @@
-<div class="chat-container">
+<div class="chat-container" id="chat-container">
     <div class="message-row" *ngFor="let message of messages$ | async">
         <div class="message-avatar">
             <img src="../../../../../assets/avatar.png" alt="avatar" class="avatar-img">
@@ -9,9 +9,8 @@
             <div class="message-box">{{message.content}}</div>
         </div>
     </div>
-
-    <div class="write-section" [formGroup]="form">
-        <textarea placeholder="Write here..." formControlName="content"></textarea>
-        <img src="../../../../../assets/send-icon.jpg" alt="send" (click)="sendMessage()">
-    </div>
 </div>
+<form class="write-section" [formGroup]="form">
+    <textarea placeholder="Write here..." formControlName="content" id="message-area"></textarea>
+    <img src="../../../../../assets/send-icon.jpg" alt="send" (click)="sendMessage()">
+</form>

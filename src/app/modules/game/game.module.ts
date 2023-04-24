@@ -4,11 +4,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { QuestionComponent } from './components/question/question.component';
+import { NumberQuestionComponent } from './components/number-question/number-question.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    QuestionComponent
+    QuestionComponent,
+    NumberQuestionComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { QuestionComponent } from './components/question/question.component';
   ],
   exports: [
     DashboardComponent,
-    QuestionComponent
+    QuestionComponent,
+    NumberQuestionComponent
   ]
 })
 export class GameModule { }

@@ -12,17 +12,27 @@ import { AuthenticationService } from 'src/app/modules/auth/services/authenticat
 export class ProfileComponent implements OnInit {
 
   wrongLogin: boolean = false;
+  playerRank = '';
+  userValue: any;
 
   constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
+    if(3>5){
+      this.playerRank = 'Magic Geek';
+    }
+    else{
+      this.playerRank = 'Nerdy Wizard';
+    }
+    this.userValue = this.authService.userValue;
+    console.log(this.userValue.user.username);
   }
 
   form = new FormGroup({
-    username: new FormControl('', [
+    oldpassword: new FormControl('', [
       Validators.required
     ]),
-    password: new FormControl('', [
+    newpassword: new FormControl('', [
       Validators.required
     ])
   })

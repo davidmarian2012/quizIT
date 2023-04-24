@@ -30,10 +30,46 @@ app-chat{
     font-size: 30px;
 }
 
-.middle-space{
+.classic-mode-container{
     height: 90vh;
-    background-color: rgb(49, 49, 49);
     width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../../../../../assets/bg-classic.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}
+
+.war-mode-container{
+    height: 90vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../../../../../assets/bg-war.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}
+
+.training-mode-container{
+    height: 90vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../../../../../assets/bg-training.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
 }
 
 .play-btn:hover{
@@ -74,4 +110,16 @@ app-chat{
     font-weight: 700;
     font-size: 14px;
     transition: 0.3s;
+}
+
+.ribbon{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 400px;
+    height: auto;
+    margin: 5vh 0 2vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,14 +5,24 @@ import { RegisterComponent } from './modules/auth/components/register/register.c
 import { DashboardComponent } from './modules/game/components/dashboard/dashboard.component';
 import { ProfileComponent } from './modules/shared/components/profile/profile.component';
 import { QuestionComponent } from './modules/game/components/question/question.component';
+import { NumberQuestionComponent } from './modules/game/components/number-question/number-question.component';
+import { AddQuestionComponent } from './modules/core/components/add-question/add-question.component';
+import { NumericalQuestionComponent } from './modules/core/components/numerical-question/numerical-question.component';
+import { MultiQuestionComponent } from './modules/core/components/multi-question/multi-question.component';
+import { AuthGuard } from './modules/shared/guards/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent},
   {path: 'q', component: QuestionComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'}
+  {path: 'q2', component: NumberQuestionComponent},
+  {path: 'add-question', component: AddQuestionComponent},
+  {path: 'add-numerical', component: NumericalQuestionComponent},
+  {path: 'add-multi', component: MultiQuestionComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '**', pathMatch: 'full', component: LoginComponent },
 ];
 
 @NgModule({

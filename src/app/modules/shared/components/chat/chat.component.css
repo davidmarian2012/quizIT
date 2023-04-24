@@ -1,16 +1,21 @@
 .chat-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 90vh;
+    display: block;
+    height: 80vh;
     background-color: rgb(49, 49, 49);
     width: 20vw;
-    overflow: hidden;
-    gap: 20px;
+    overflow-y: scroll;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 5px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.chat-container::-webkit-scrollbar {
+    display: none;
 }
 
 .message-row{
+    margin: 20px 0;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -51,12 +56,13 @@
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     min-height: 3vh;
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    word-wrap: break-word;
 }
 
 .write-section{
     display: flex;
+    height: 10vh;
     flex-direction: column;
     align-items: flex-end;
     position: relative;

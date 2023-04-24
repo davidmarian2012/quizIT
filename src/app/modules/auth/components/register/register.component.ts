@@ -44,6 +44,8 @@ export class RegisterComponent implements OnInit {
     this.form.markAllAsTouched();
 
     if(this.form.valid){
+      this.takenEmail = false;
+      this.takenUsername = false;
       this.loading = true;
 
       this.authService.register(this.form.value)

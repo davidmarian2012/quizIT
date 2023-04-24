@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,10 @@ export class QuestionComponent implements OnInit {
     document.getElementById('answer-2')!.style.backgroundColor='transparent';
     document.getElementById('answer-3')!.style.backgroundColor='transparent';
     document.getElementById('answer-4')!.style.backgroundColor='rgba(131, 177, 130, 0.3)';
+  }
+
+  submitAnswer(): any{
+    this.router.navigate(['/q2']);
   }
 
 }

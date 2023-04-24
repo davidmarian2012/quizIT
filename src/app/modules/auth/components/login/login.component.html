@@ -1,12 +1,13 @@
 <div class="container">
     <div class="logo-shell">
         <img src="../../../../../assets/3.png" alt="logo">
+        <h3>A thrilling trivia game for tech enthusiasts</h3>
         <img src="../../../../../assets/ribbon-login.png" alt="ribbon" class="ribbon">
     </div>
     
     <app-loading-spinner *ngIf="loading"></app-loading-spinner>
 
-    <div [formGroup]="form" class="login-container" *ngIf="!loading">
+    <form [formGroup]="form" class="login-container" *ngIf="!loading">
         <div class="login-row">
             <label for="username">Username</label>
             <input type="text" formControlName="username" placeholder="Enter your username">
@@ -20,9 +21,9 @@
             <!-- <div class="error-message"></div> -->
         </div>
         <div class="buttons-container">
-            <button type="button" class="login-btn" (click)="loginUser()">Login</button>
+            <button type="submit" class="login-btn" (click)="loginUser()">Login</button>
             <button type="button" class="create-btn" routerLink="/register">Create a new account</button>
         </div>
         <div *ngIf="wrongLogin" class="wrong-login">Wrong username/password</div>
-    </div>
+    </form>
 </div>

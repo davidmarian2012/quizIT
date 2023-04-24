@@ -40,8 +40,9 @@ export class LoginComponent implements OnInit {
       this.authService.login(username, password)
       .pipe(first()).subscribe(
         user => {
-          console.log(user);
+          console.log(user.username);
           this.router.navigate(['/dashboard']);
+          sessionStorage.setItem("isLogged", "true");
         },
         () => {
           this.wrongLogin = true;
