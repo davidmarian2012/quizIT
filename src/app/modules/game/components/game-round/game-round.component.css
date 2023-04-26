@@ -1,0 +1,11 @@
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../../../../../assets/b.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

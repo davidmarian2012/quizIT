@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { first } from 'rxjs';
+import { Observable, first, map } from 'rxjs';
+import { User } from 'src/app/modules/auth/components/interfaces/user';
 import { AuthenticationService } from 'src/app/modules/auth/services/authentication.service';
 
 @Component({
@@ -13,19 +14,31 @@ export class ProfileComponent implements OnInit {
 
   wrongLogin: boolean = false;
   playerRank = '';
-  userValue: any;
+  points: number = 1;
+  createdAt: any;
+  public username = sessionStorage.getItem('username') as string;
+  public capitalizedUsername = this.username.charAt(0).toUpperCase() + this.username.slice(1);
+  public user$: Observable<any>;
 
-  constructor(private router: Router, private authService: AuthenticationService) { }
+  constructor(private router: Router, private authService: AuthenticationService) {
+    this.user$ = this.authService.getUserByUsername(this.username);
+   }
 
   ngOnInit(): void {
-    if(3>5){
-      this.playerRank = 'Magic Geek';
+    this.user$.subscribe(user => {
+      this.points = user.points;
+      this.createdAt = user.createdAt.substring(0,10);
+    })
+
+    if(this.points < 100){
+      this.playerRank = 'Beginner';
     }
-    else{
+    else if (this.points >= 100 && this.points < 200) {
       this.playerRank = 'Nerdy Wizard';
     }
-    this.userValue = this.authService.userValue;
-    console.log(this.userValue.user.username);
+    else {
+      this.playerRank = 'Great Master';
+    }
   }
 
   form = new FormGroup({

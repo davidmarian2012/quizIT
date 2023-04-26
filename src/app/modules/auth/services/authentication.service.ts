@@ -25,8 +25,10 @@ export class AuthenticationService {
   }
 
   register(userInput: any): Observable<any> {
+    const editedUsername = userInput.username.toLowerCase();
+
     const newUser = {
-      "username": userInput.username,
+      "username": editedUsername,
       "password": userInput.password,
       "email": userInput.email
     }
@@ -38,12 +40,6 @@ export class AuthenticationService {
         body: newUser
       }
     });
-
-    // await fetch("http://localhost:8080/user", {
-    //   method: "POST",
-    //   body: JSON.stringify(newUser),
-    //   headers: {"Content-Type": "application/json"}
-    // })
   }
 
   login(username: any, password: any): Observable<any>{
@@ -51,11 +47,12 @@ export class AuthenticationService {
       method: HttpMethods.Post,
       url: '/user/login',
       options: {
-        body: {username: username, password: password}
+        body: {username: username.toLowerCase(), password: password}
       }
      }
     ).pipe(map(authResult => {
 
+      sessionStorage.setItem('username', username.toLowerCase());
       sessionStorage.setItem('token', authResult.token);
       this.token = authResult.token;
 
@@ -72,6 +69,26 @@ export class AuthenticationService {
     } catch (Error) {
       return null;
     }
+  }
+
+  getAllUsers(): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Get,
+      url: '/user',
+      options: {}
+    });
+  }
+
+  getUserByUsername(username: string): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Post,
+      url: '/user/username',
+      options: {
+        body: {
+          username: username
+        }
+      }
+    });
   }
 
 }

@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
-import { QuestionService } from 'src/app/modules/core/services/question.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-number-question',
@@ -10,35 +7,24 @@ import { QuestionService } from 'src/app/modules/core/services/question.service'
 })
 export class NumberQuestionComponent implements OnInit {
 
-  public numericalQuestions$: Observable<any>;
-  public randomizedNumericalQuestions$: Observable<any>;
+  @Input() title: string = "";
+  @Input() answer: number = 0;
 
-  constructor(private router: Router, private questionService: QuestionService) { 
-
-    this.numericalQuestions$ = this.questionService.getAllNumericalQuestions();
-
-    this.randomizedNumericalQuestions$ = this.numericalQuestions$.pipe(
-      map(numericalQuestions => {
-        const randomValues: any[] = [];
-        while(randomValues.length < 2) {
-          const randomIndex = Math.floor(Math.random() * numericalQuestions.length);
-          if(!randomValues.includes(numericalQuestions[randomIndex])) {
-            randomValues.push(numericalQuestions[randomIndex]);
-          }
-        }
-
-        return randomValues;
-        
-      })
-    );
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   submitAnswer(): void{
-    this.router.navigate(['/q']);
+    let input = document.getElementById('numerical-answer') as HTMLInputElement;
+    let user_input = Number(input.value);
+    if(user_input === this.answer){
+      console.log("Correct!");
+    }
+    else{
+      console.log("Wrong!");
+    }
+    // this.router.navigate(['/q']);
   }
 
 }

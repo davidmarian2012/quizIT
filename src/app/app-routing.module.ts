@@ -10,6 +10,7 @@ import { AddQuestionComponent } from './modules/core/components/add-question/add
 import { NumericalQuestionComponent } from './modules/core/components/numerical-question/numerical-question.component';
 import { MultiQuestionComponent } from './modules/core/components/multi-question/multi-question.component';
 import { AuthGuard } from './modules/shared/guards/auth.guard';
+import { GameRoundComponent } from './modules/game/components/game-round/game-round.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'add-question', component: AddQuestionComponent},
   {path: 'add-numerical', component: NumericalQuestionComponent},
   {path: 'add-multi', component: MultiQuestionComponent},
+  {path: 'game', component: GameRoundComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', pathMatch: 'full', component: LoginComponent },
 ];

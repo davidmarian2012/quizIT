@@ -5,12 +5,14 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { QuestionComponent } from './components/question/question.component';
 import { NumberQuestionComponent } from './components/number-question/number-question.component';
+import { GameRoundComponent } from './components/game-round/game-round.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     QuestionComponent,
-    NumberQuestionComponent
+    NumberQuestionComponent,
+    GameRoundComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { NumberQuestionComponent } from './components/number-question/number-que
   exports: [
     DashboardComponent,
     QuestionComponent,
-    NumberQuestionComponent
+    NumberQuestionComponent,
+    GameRoundComponent
   ]
 })
 export class GameModule { }

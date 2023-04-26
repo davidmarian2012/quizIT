@@ -13,7 +13,7 @@ export class ChatService {
 
   saveMessage(messageInput: any): Observable<any> {
     const newMessage = {
-      "author": "author",
+      "author": messageInput.author,
       "content": messageInput.content
     }
 

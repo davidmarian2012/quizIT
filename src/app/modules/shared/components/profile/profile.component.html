@@ -6,22 +6,22 @@
     
     <div [formGroup]="form" class="login-container">
         <div class="avatar"><img src="../../../../../assets/avatar.png" alt="avatar">
-            <h2>{{userValue.value.username}}</h2>
-        </div>
-        
-        <div class="login-row">
-            <label for="username">Member since</label>
-            <label for="username" class="small-label">22.04.2019</label>
+            <h2>{{capitalizedUsername}}</h2>
         </div>
 
         <div class="login-row">
             <label for="username">Rank</label>
             <label for="username" class="small-label">{{playerRank}}</label>
         </div>
-
+        
         <div class="login-row">
             <label for="username">Points</label>
-            <label for="username" class="small-label">7546</label>
+            <label for="username" class="small-label">{{points}}</label>
+        </div>
+
+        <div class="login-row">
+            <label for="username">Member since</label>
+            <label for="username" class="small-label">{{createdAt}}</label>
         </div>
 
         <div class="login-row">

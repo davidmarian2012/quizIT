@@ -1,8 +1,10 @@
 .chat-container{
-    display: block;
-    height: 80vh;
-    background-color: rgb(49, 49, 49);
-    width: 20vw;
+    display: flex;
+    align-items: space-around;
+    flex-direction: column-reverse;
+    height: 84vh;
+    background-color: rgb(46, 44, 44);
+    width: 15vw;
     overflow-y: scroll;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 5px 0;
@@ -15,28 +17,28 @@
 }
 
 .message-row{
-    margin: 20px 0;
+    margin: 7px 0;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    gap: 15px;
 }
 
 .message-avatar{
-    width: 3vw;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
 .avatar-img{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 50%;
 }
 
 .message-details{
-    width: 17vw;
+    width: 11vw;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -49,9 +51,11 @@
 }
 
 .message-box{
-    background-color: rgb(216, 216, 216);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: rgb(22, 21, 21);
+    color: #fff;
     font-size: 12px;
-    max-width: 16vw;
+    max-width: 15vw;
     padding: 10px;
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -62,11 +66,12 @@
 
 .write-section{
     display: flex;
-    height: 10vh;
+    height: 6vh;
     flex-direction: column;
     align-items: flex-end;
-    position: relative;
+    color: #fff;
 }
+
 
 .write-section img{
     width: 30px;
@@ -80,12 +85,13 @@
 
 textarea{
     display: flex;
-    width: 20vw;
+    width: 15vw;
     height: 100px;
     padding: 10px;
     border: 0;
     resize: none;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(10, 10, 10);
+    color: #fff;
 }
 
 textarea:focus{
@@ -95,9 +101,28 @@ textarea:focus{
 .send-btn{
     cursor: pointer;
     height: 35px;
-    width: 20vw;
+    width: 15vw;
     border: 0;
     font-weight: 700;
     background-color: rgb(69, 98, 118);
     color: #fff;
+}
+
+.collapse-btn{
+    background-color: rgb(202, 199, 38);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    width: 25px;
+    height: 30px;
+    position: absolute;
+    top: 5vh;
+    left: 15vw;
+    border-radius: 0 5px 5px 0;
+    border-top: 2px solid rgb(155, 153, 46);
+    border-right: 2px solid rgb(155, 153, 46);
+    border-bottom: 2px solid rgb(155, 153, 46);
+    cursor: pointer;
 }

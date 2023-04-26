@@ -1,0 +1,14 @@
+<div class="container">
+    <!-- <div class="questions" *ngFor="let q of randomizedNumericalQuestions$ | async">
+        <app-number-question [title]="q.question" 
+                             [answer]="q.answer">
+        </app-number-question>
+    </div> -->
+
+    <div class="questions" *ngFor="let q of randomizedMultiAnswerQuestions$ | async">
+        <app-question [title]="q.question" 
+                      [answers]="q.answers"
+                      [answer]="q.correct">
+        </app-question>
+    </div>
+</div>

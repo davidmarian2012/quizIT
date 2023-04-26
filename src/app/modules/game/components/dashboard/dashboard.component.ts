@@ -14,14 +14,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectGame1();
-    console.log(this.authService.userValue);
   }
 
   selectGame1(): any{
     this.gameMode = 1;
-    document.getElementById('game-1')!.style.backgroundColor='rgb(65, 106, 121)';
-    document.getElementById('game-2')!.style.backgroundColor='rgb(38, 58, 65)';
-    document.getElementById('game-3')!.style.backgroundColor='rgb(38, 58, 65)';
+    // document.getElementById('game-1')!.style.backgroundColor='rgb(65, 106, 121)';
+    // document.getElementById('game-2')!.style.backgroundColor='rgb(38, 58, 65)';
+    // document.getElementById('game-3')!.style.backgroundColor='rgb(38, 58, 65)';
   }
 
   selectGame2(): any{

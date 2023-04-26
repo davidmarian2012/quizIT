@@ -10,7 +10,8 @@
         </div>
     </div>
 </div>
-<form class="write-section" [formGroup]="form">
+<form class="write-section" [formGroup]="form" id="write-section">
     <textarea placeholder="Write here..." formControlName="content" id="message-area"></textarea>
     <img src="../../../../../assets/send-icon.jpg" alt="send" (click)="sendMessage()">
 </form>
+<div class="collapse-btn" (click)="collapse()" id="collapse-btn">X</div>
