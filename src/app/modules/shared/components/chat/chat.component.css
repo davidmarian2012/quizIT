@@ -21,7 +21,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 15px;
+    gap: 5px;
 }
 
 .message-avatar{
@@ -35,10 +35,11 @@
     height: 35px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 50%;
+    border: 2px solid rgb(17, 17, 17);
 }
 
 .message-details{
-    width: 11vw;
+    width: 12vw;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -53,12 +54,12 @@
 .message-box{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: rgb(22, 21, 21);
+    border: 2px solid rgb(17, 17, 17);
     color: #fff;
     font-size: 12px;
     max-width: 15vw;
     padding: 10px;
     border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     min-height: 3vh;
     display: inline-block;
     word-wrap: break-word;
@@ -115,10 +116,10 @@ textarea:focus{
     align-items: center;
     text-align: center;
     font-weight: 500;
-    width: 25px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
     position: absolute;
-    top: 5vh;
+    top: 3vh;
     left: 15vw;
     border-radius: 0 5px 5px 0;
     border-top: 2px solid rgb(155, 153, 46);

@@ -54,6 +54,7 @@ export class AuthenticationService {
 
       sessionStorage.setItem('username', username.toLowerCase());
       sessionStorage.setItem('token', authResult.token);
+      sessionStorage.setItem('hiddenChat', 'false');
       this.token = authResult.token;
 
       let user = this.getDecodedAccessToken();

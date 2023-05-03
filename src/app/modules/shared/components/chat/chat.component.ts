@@ -16,6 +16,8 @@ export class ChatComponent implements OnInit {
   public username = sessionStorage.getItem('username') as string;
   public capitalizedUsername = this.username.charAt(0).toUpperCase() + this.username.slice(1);
 
+  public hiddenChat = sessionStorage.getItem('hiddenChat');
+
   form = new FormGroup({
     content: new FormControl('', [
       Validators.required
@@ -27,6 +29,21 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const chat = document.getElementById('chat-container') as HTMLElement;
+    const writeSection = document.getElementById('write-section') as HTMLElement;
+    const collapseBtn = document.getElementById('collapse-btn') as HTMLElement;
+
+    if(this.hiddenChat == 'false'){
+      chat.style.display = 'flex';
+      writeSection.style.display = 'flex';
+      collapseBtn.style.left = '15vw';
+      collapseBtn.textContent = 'X';
+    } else {
+      chat.style.display = 'none';
+      writeSection.style.display = 'none';
+      collapseBtn.style.left = '0';
+      collapseBtn.textContent = '>';
+    }
   }
 
   sendMessage(): any{
@@ -55,11 +72,13 @@ export class ChatComponent implements OnInit {
       writeSection.style.display = 'flex';
       collapseBtn.style.left = '15vw';
       collapseBtn.textContent = 'X';
+      sessionStorage.setItem("hiddenChat", "false");
     } else {
       chat.style.display = 'none';
       writeSection.style.display = 'none';
       collapseBtn.style.left = '0';
       collapseBtn.textContent = '>';
+      sessionStorage.setItem("hiddenChat", "true");
     }
   }
 }
