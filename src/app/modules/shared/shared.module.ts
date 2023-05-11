@@ -7,12 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import * as $ from 'jquery';
+import { MessageComponent } from './components/message/message.component';
 @NgModule({
   declarations: [
     HeaderComponent,
     ChatComponent,
     ProfileComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,

@@ -1,17 +1,22 @@
 <div class="chat-container" id="chat-container">
     <div class="message-row" *ngFor="let message of messages$ | async">
-        <div class="message-avatar">
-            <img src="../../../../../assets/avatar.png" alt="avatar" class="avatar-img">
+
+        <app-message [message]="message" [author]="message.author" (refreshPage)="refresh($event)"></app-message>
+
+        <!-- <div class="message-avatar">
+            <img src="http://localhost:8080/avatar/{{getAvatar(message.author)}}" alt="avatar" class="avatar-img">
         </div>
         
         <div class="message-details">
             <h3>{{message.author}}</h3>
             <div class="message-box">{{message.content}}</div>
-        </div>
+        </div> -->
     </div>
 </div>
 <form class="write-section" [formGroup]="form" id="write-section">
     <textarea placeholder="Write here..." formControlName="content" id="message-area"></textarea>
-    <img src="../../../../../assets/send-icon.jpg" alt="send" (click)="sendMessage()">
+    <div class="send-btn-container">
+        <img src="../../../../../assets/send.svg" alt="send" (click)="sendMessage()">
+    </div>
 </form>
-<div class="collapse-btn" (click)="collapse()" id="collapse-btn">X</div>
+<div class="collapse-btn" (click)="collapse()" id="collapse-btn">&lt;</div>

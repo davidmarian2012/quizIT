@@ -13,7 +13,7 @@
 app-chat{
     position: absolute;
     left: 0;
-    top: 10vh;
+    top: 8vh;
 }
 
 .play-btn{
@@ -36,9 +36,24 @@ app-chat{
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     color: #fff;
+}
+
+.game-logo{
+    margin-top: 5vh;
+}
+
+.game-info{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-info h2, h4{
+    text-shadow: 1px 1px 2px #000000;
 }
 
 .play-btn:hover{

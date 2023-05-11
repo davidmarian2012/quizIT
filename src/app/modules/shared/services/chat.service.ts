@@ -26,6 +26,14 @@ export class ChatService {
     });
   }
 
+  deleteMessage(id: any){
+    return this.httpService.dispatchData({
+      method: HttpMethods.Delete,
+      url: `/message/${id}`,
+      options: {}
+    });
+  }
+
   getAllMessages(): Observable<any> {
     return this.httpService.dispatchData({
       method: HttpMethods.Get,

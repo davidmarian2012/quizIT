@@ -16,18 +16,8 @@
     display: none;
 }
 
-#message-area{
-    width: 13vw;
-    height: 6vh;
-}
-
-.send-btn-container{
-    width: 2vw;
-    background-color: rgb(10, 10, 10);
-}
-
 .message-row{
-    margin: 7px 0;
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -78,7 +68,8 @@
 .write-section{
     display: flex;
     height: 6vh;
-    width: 15vw;
+    flex-direction: column;
+    align-items: flex-end;
     color: #fff;
 }
 
@@ -102,7 +93,6 @@ textarea{
     resize: none;
     background-color: rgb(10, 10, 10);
     color: #fff;
-    overflow: hidden;
 }
 
 textarea:focus{
@@ -116,7 +106,6 @@ textarea:focus{
     border: 0;
     font-weight: 700;
     background-color: rgb(69, 98, 118);
-    color: #fff;
 }
 
 .collapse-btn{
@@ -135,5 +124,14 @@ textarea:focus{
     border-top: 2px solid rgb(155, 153, 46);
     border-right: 2px solid rgb(155, 153, 46);
     border-bottom: 2px solid rgb(155, 153, 46);
+    cursor: pointer;
+}
+
+.remove-btn{
+    position: absolute;
+    right: 7px;
+    top: 23px;
+    color: rgb(185, 69, 69);
+    font-weight: 500;
     cursor: pointer;
 }

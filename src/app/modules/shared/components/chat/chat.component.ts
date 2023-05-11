@@ -10,7 +10,8 @@ import { AuthenticationService } from 'src/app/modules/auth/services/authenticat
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  messages: any[] = [{author: 'yea', content: 'content'}];
+
+  avatar = '';
   public messages$: Observable<any>;
 
   public username = sessionStorage.getItem('username') as string;
@@ -29,6 +30,9 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.messages$ = this.chatService.getAllMessages();
+
     const chat = document.getElementById('chat-container') as HTMLElement;
     const writeSection = document.getElementById('write-section') as HTMLElement;
     const collapseBtn = document.getElementById('collapse-btn') as HTMLElement;
@@ -37,7 +41,7 @@ export class ChatComponent implements OnInit {
       chat.style.display = 'flex';
       writeSection.style.display = 'flex';
       collapseBtn.style.left = '15vw';
-      collapseBtn.textContent = 'X';
+      collapseBtn.textContent = '<';
     } else {
       chat.style.display = 'none';
       writeSection.style.display = 'none';
@@ -47,17 +51,19 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage(): any{
-    if(this.form.get('content')!.value!)
+
+    const containsOnlySpaces = /^\s*$/.test(this.form.get('content')!.value!);
+
+    if(this.form.get('content')!.value! && !containsOnlySpaces)
     {
       const comm = {author: this.capitalizedUsername, content: this.form.get('content')!.value!};
-
+      this.ngOnInit();
       this.chatService.saveMessage(comm)
       .pipe(first()).subscribe(
         () => {
           this.ngOnInit();
         }
       );
-      
       this.form.reset();
     }
   }
@@ -71,7 +77,7 @@ export class ChatComponent implements OnInit {
       chat.style.display = 'flex';
       writeSection.style.display = 'flex';
       collapseBtn.style.left = '15vw';
-      collapseBtn.textContent = 'X';
+      collapseBtn.textContent = '<';
       sessionStorage.setItem("hiddenChat", "false");
     } else {
       chat.style.display = 'none';
@@ -80,5 +86,10 @@ export class ChatComponent implements OnInit {
       collapseBtn.textContent = '>';
       sessionStorage.setItem("hiddenChat", "true");
     }
+  }
+
+  refresh($event: any): void{
+    if($event == true)
+      this.ngOnInit();
   }
 }

@@ -1,6 +1,6 @@
 header{
     width: 100vw;
-    height: 10vh;
+    height: 8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,10 +9,19 @@ header{
 
 .link-box{
     color: #fff;
+    background-color: rgb(46, 44, 44);
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.link-box:not(:last-child){
+    border-right: 2px solid rgb(32, 32, 32);
+}
+
+.link-box:hover{
+    background-color: rgb(32, 32, 32);
 }

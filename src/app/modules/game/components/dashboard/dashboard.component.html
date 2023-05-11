@@ -3,26 +3,30 @@
     <app-chat></app-chat>
 
     <div class="classic-mode-container">
-        <h2>Select type of game</h2>
-        <div class="modes-list">
-            <div class="game-btn" id="game-1" (click)="selectGame1()">Classic</div>
-            <div class="game-btn" id="game-2" (click)="selectGame2()">Extended War</div>
-            <div class="game-btn" id="game-3" (click)="selectGame3()">Training</div>  
+        <div class="game-logo"><img src="../../../../../assets/logo.png" alt="logo" class="logo"></div>
+        
+        <div class="game-info">
+            <h2>Select type of game</h2>
+            <div class="modes-list">
+                <div class="game-btn" id="game-1" (click)="selectGame1()">Classic</div>
+                <div class="game-btn" id="game-2" (click)="selectGame2()">Extended War</div>
+                <div class="game-btn" id="game-3" (click)="selectGame3()">Training</div>  
+            </div>
+
+            <h2>Rules</h2>
+            <h4 *ngIf="gameMode == 1">10 numerical questions - 0.8p</h4>
+            <h4 *ngIf="gameMode == 1">10 multi-answer questions - 0.3p</h4>
+            <h4 *ngIf="gameMode == 1">11 earnable ranking points</h4>
+
+            <h4 *ngIf="gameMode == 2">20 numerical questions</h4>
+            <h4 *ngIf="gameMode == 2">15 multi-answer questions</h4>
+            <h4 *ngIf="gameMode == 2">20.5 earnable ranking points</h4>
+
+            <h4 *ngIf="gameMode == 3">Inifinite numerical questions</h4>
+            <h4 *ngIf="gameMode == 3">Infinite multi-answer questions</h4>
+            <h4 *ngIf="gameMode == 3">No earnable ranking points</h4>
+
+            <button class="play-btn" routerLink="/game">Play</button>
         </div>
-
-        <h2>Rules</h2>
-        <h4 *ngIf="gameMode == 1">10 numerical questions - 0.8p</h4>
-        <h4 *ngIf="gameMode == 1">10 multi-answer questions - 0.3p</h4>
-        <h4 *ngIf="gameMode == 1">11 earnable ranking points</h4>
-
-        <h4 *ngIf="gameMode == 2">20 numerical questions</h4>
-        <h4 *ngIf="gameMode == 2">15 multi-answer questions</h4>
-        <h4 *ngIf="gameMode == 2">20.5 earnable ranking points</h4>
-
-        <h4 *ngIf="gameMode == 3">Inifinite numerical questions</h4>
-        <h4 *ngIf="gameMode == 3">Infinite multi-answer questions</h4>
-        <h4 *ngIf="gameMode == 3">No earnable ranking points</h4>
-
-        <button class="play-btn" routerLink="/game">Play</button>
     </div>
 </div>

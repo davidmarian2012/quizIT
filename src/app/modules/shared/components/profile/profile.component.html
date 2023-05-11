@@ -5,7 +5,7 @@
     </div>
     
     <div [formGroup]="form" class="login-container">
-        <div class="avatar"><img src="../../../../../assets/avatar.png" alt="avatar">
+        <div class="avatar"><img src="http://localhost:8080/avatar/{{avatar}}" alt="avatar" (click)="choose()">
             <h2>{{capitalizedUsername}}</h2>
         </div>
 
@@ -38,6 +38,9 @@
         </div>
         <div class="buttons-container">
             <button type="button" class="login-btn">Change password</button>
+            <button type="button" class="upload-btn" id="upload-btn" (click)="upload()">Upload avatar</button>
         </div>
+
+        <input type="file" name="avatar" (input)="fileChosen($event)" (change)="onFileSelected($event)" id='avatarInput' [hidden]="true">
     </div>
 </div>

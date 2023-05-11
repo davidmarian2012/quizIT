@@ -6,12 +6,14 @@ import { SharedModule } from '../shared/shared.module';
 import { NumericalQuestionComponent } from './components/numerical-question/numerical-question.component';
 import { MultiQuestionComponent } from './components/multi-question/multi-question.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { RankingsComponent } from './components/rankings/rankings.component';
 
 @NgModule({
   declarations: [
     AddQuestionComponent,
     NumericalQuestionComponent,
-    MultiQuestionComponent
+    MultiQuestionComponent,
+    RankingsComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   exports: [
     AddQuestionComponent,
     NumericalQuestionComponent,
-    MultiQuestionComponent
+    MultiQuestionComponent,
+    RankingsComponent
   ]
 })
 export class CoreModule { }

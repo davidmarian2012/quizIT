@@ -16,6 +16,9 @@ export class ProfileComponent implements OnInit {
   playerRank = '';
   points: number = 1;
   createdAt: any;
+  avatar = 'avatar.png';
+
+  public image: File | undefined;
   public username = sessionStorage.getItem('username') as string;
   public capitalizedUsername = this.username.charAt(0).toUpperCase() + this.username.slice(1);
   public user$: Observable<any>;
@@ -25,8 +28,12 @@ export class ProfileComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    const uploadButton = document.getElementById('upload-btn') as HTMLButtonElement;
+    uploadButton.disabled = true;
+
     this.user$.subscribe(user => {
       this.points = user.points;
+      this.avatar = user.avatar;
       this.createdAt = user.createdAt.substring(0,10);
     })
 
@@ -39,6 +46,36 @@ export class ProfileComponent implements OnInit {
     else {
       this.playerRank = 'Great Master';
     }
+  }
+
+  fileChosen(event: any): void {
+    if(event.target.value){
+      this.image = <File>event.target.files[0];
+    }
+    const uploadButton = document.getElementById('upload-btn') as HTMLButtonElement;
+    uploadButton.disabled = false;
+    uploadButton.style.cursor = 'pointer';
+    uploadButton.style.backgroundColor = 'rgb(202, 199, 38)';
+  }
+  
+  upload(){
+    const username = sessionStorage.getItem('username') as string;
+    this.authService.upload(username, this.image).subscribe(
+      () => {
+        this.ngOnInit();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  choose(){
+    document.getElementById('avatarInput')?.click();
+  }
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
   }
 
   form = new FormGroup({

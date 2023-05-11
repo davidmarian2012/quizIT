@@ -5,6 +5,7 @@ import { HttpService } from '../../shared/services/http.service';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
 import { User } from '../components/interfaces/user';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +81,14 @@ export class AuthenticationService {
     });
   }
 
+  getAllUsersByPoints(): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Get,
+      url: '/user/usersbypoints',
+      options: {}
+    });
+  }
+
   getUserByUsername(username: string): Observable<any> {
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
@@ -90,6 +99,23 @@ export class AuthenticationService {
         }
       }
     });
+  }
+
+  upload(username: string, avatar: File | undefined): Observable<any> {
+
+    let fd = new FormData();
+    
+    fd.append('username', username);
+    fd.append('avatar', avatar!);
+
+    return this.httpService.dispatchData({
+      method: HttpMethods.Post,
+      url: '/user/upload',
+      options: {
+        body: 
+          fd
+      }
+    })
   }
 
 }
