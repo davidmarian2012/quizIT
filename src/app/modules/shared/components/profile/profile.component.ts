@@ -70,6 +70,22 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  removeAvatar(){
+    if(this.avatar !== 'avatar.png'){
+      const username = sessionStorage.getItem('username') as string;
+      
+      this.authService.removeAvatar(username).subscribe(
+        () => {
+          this.ngOnInit();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+      }
+    
+  }
+
   choose(){
     document.getElementById('avatarInput')?.click();
   }

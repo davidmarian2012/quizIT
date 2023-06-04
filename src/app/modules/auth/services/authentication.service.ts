@@ -118,4 +118,16 @@ export class AuthenticationService {
     })
   }
 
+  removeAvatar(username: string): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Post,
+      url: '/user/removeAvatar',
+      options: {
+        body: {
+          username: username
+        }
+      }
+    })
+  }
+
 }

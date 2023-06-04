@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-question',
@@ -14,13 +15,15 @@ export class QuestionComponent implements OnInit {
 
   selectedAnswer: string = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private gameService: GameService) { }
 
   ngOnInit(): void {
+    this.gameService.answer = this.answer;
   }
 
   selectAnswer1(): any{
     this.selectedAnswer = this.answers[0];
+    this.gameService.selectedAnswer = this.answers[0];
 
     document.getElementById('answer-1')!.style.backgroundColor='rgba(131, 177, 130, 0.3)';
     document.getElementById('answer-2')!.style.backgroundColor='transparent';
@@ -30,6 +33,7 @@ export class QuestionComponent implements OnInit {
 
   selectAnswer2(): any{
     this.selectedAnswer = this.answers[1];
+    this.gameService.selectedAnswer = this.answers[1];
     
     document.getElementById('answer-1')!.style.backgroundColor='transparent';
     document.getElementById('answer-2')!.style.backgroundColor='rgba(131, 177, 130, 0.3)';
@@ -39,6 +43,7 @@ export class QuestionComponent implements OnInit {
 
   selectAnswer3(): any{
     this.selectedAnswer = this.answers[2];
+    this.gameService.selectedAnswer = this.answers[2];
     
     document.getElementById('answer-1')!.style.backgroundColor='transparent';
     document.getElementById('answer-2')!.style.backgroundColor='transparent';
@@ -48,6 +53,7 @@ export class QuestionComponent implements OnInit {
 
   selectAnswer4(): any{
     this.selectedAnswer = this.answers[3];
+    this.gameService.selectedAnswer = this.answers[3];
     
     document.getElementById('answer-1')!.style.backgroundColor='transparent';
     document.getElementById('answer-2')!.style.backgroundColor='transparent';
@@ -62,6 +68,11 @@ export class QuestionComponent implements OnInit {
     else{
       console.log("Wrong!");
     }
+
+    this.gameService.questionNumber += 1;
+    console.log(this.gameService.questionNumber);
+    this.ngOnInit();
+    
     // this.router.navigate(['/q2']);
   }
 

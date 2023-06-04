@@ -9,3 +9,6 @@
     </div>
     <div class="remove-btn" (click)="deleteMessage()" *ngIf="showDelete">x</div>
 </div>
+<div class="message-date">
+    <h2 class="date">{{message.createdAt.slice(0,10)}} {{message.createdAt.slice(11,19)}}</h2>
+</div>

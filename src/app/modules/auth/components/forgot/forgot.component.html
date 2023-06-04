@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="logo-shell">
+        <img src="../../../../../assets/3.png" alt="logo">
+        <h3>A thrilling trivia game for tech enthusiasts</h3>
+        <img src="../../../../../assets/ribbon-reset.png" alt="ribbon" class="ribbon">
+    </div>
+    
+    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+
+    <form [formGroup]="form" class="login-container" *ngIf="!loading">
+        <div class="login-row">
+            <label for="mail">E-mail</label>
+            <input type="text" formControlName="mail" placeholder="Enter your e-mail">
+        </div>
+        
+        <div class="buttons-container">
+            <button type="submit" class="login-btn" (click)="sendRequest()">Reset password</button>
+        </div>
+
+        <div *ngIf="success" class="success">E-mail sent successfully!</div>
+    </form>
+</div>

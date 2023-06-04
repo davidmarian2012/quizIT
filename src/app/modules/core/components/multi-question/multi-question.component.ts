@@ -43,7 +43,13 @@ export class MultiQuestionComponent implements OnInit {
   addQuestion(): void{
     if(this.form.valid) {
       this.loading = true;
-      const question = {question: this.form.get('question')!.value!, answers: [this.form.get('firstanswer')!.value!, this.form.get('secondanswer')!.value!, this.form.get('thirdanswer')!.value!, this.form.get('fourthanswer')!.value!], correct: this.form.get('correctanswer')!.value! };
+      const question = {
+        question: this.form.get('question')!.value!,
+        answers: [this.form.get('firstanswer')!.value!,
+                  this.form.get('secondanswer')!.value!,
+                  this.form.get('thirdanswer')!.value!,
+                  this.form.get('fourthanswer')!.value!],
+        correct: this.form.get('correctanswer')!.value! };
 
       this.questionService.saveMultiQuestion(question)
       .pipe(first()).subscribe(

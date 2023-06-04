@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/modules/auth/services/authentication.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
   gameMode = 1;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private gameService: GameService) { }
 
   ngOnInit(): void {
     this.selectGame1();
@@ -18,6 +19,7 @@ export class DashboardComponent implements OnInit {
 
   selectGame1(): any{
     this.gameMode = 1;
+    this.gameService.gameMode = 1;
     document.getElementById('game-1')!.style.backgroundColor='rgb(240, 236, 13)';
     document.getElementById('game-2')!.style.backgroundColor='rgb(182, 179, 40)';
     document.getElementById('game-3')!.style.backgroundColor='rgb(182, 179, 40)';
@@ -25,6 +27,7 @@ export class DashboardComponent implements OnInit {
 
   selectGame2(): any{
     this.gameMode = 2;
+    this.gameService.gameMode = 2;
     document.getElementById('game-1')!.style.backgroundColor='rgb(182, 179, 40)';
     document.getElementById('game-2')!.style.backgroundColor='rgb(240, 236, 13)';
     document.getElementById('game-3')!.style.backgroundColor='rgb(182, 179, 40)';
@@ -32,6 +35,7 @@ export class DashboardComponent implements OnInit {
 
   selectGame3(): any{
     this.gameMode = 3;
+    this.gameService.gameMode = 3;
     document.getElementById('game-1')!.style.backgroundColor='rgb(182, 179, 40)';
     document.getElementById('game-2')!.style.backgroundColor='rgb(182, 179, 40)';
     document.getElementById('game-3')!.style.backgroundColor='rgb(240, 236, 13)';

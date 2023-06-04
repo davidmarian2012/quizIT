@@ -21,7 +21,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
 }
 
 .login-container{
@@ -61,7 +60,7 @@ input{
     gap:20px;
 }
 
-.login-btn{
+.login-btn, .remove-btn{
     cursor: pointer;
     height: 35px;
     width: 225px;
