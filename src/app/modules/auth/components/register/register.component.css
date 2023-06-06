@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url('../../../../../assets/b.png');
+    background: url('../../../../../assets/bg-classic.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -23,11 +23,11 @@ h3{
 }
 
 .login-container{
-    background-color: rgb(46, 44, 44);
+    background-color: rgba(31, 29, 29, 0.89);
     padding: 50px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 5px;
-    border: 4px solid rgb(32, 32, 32);
+    border-radius: 2px;
+    border: 1px solid rgb(202, 199, 38);
     color: #fff;
 }
 
@@ -67,7 +67,7 @@ input{
     border: 0;
     font-weight: 700;
     background-color: rgb(202, 199, 38);
-    color: rgb(53, 52, 52);
+    color: rgba(31, 29, 29, 0.89);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     transition: 0.2s;
     font-size: 14px;
@@ -83,7 +83,7 @@ input{
     width: 225px;
     border-radius: 1px;
     font-weight: 700;
-    background-color: rgb(46, 44, 44);
+    background-color: rgba(31, 29, 29, 0.89);
     font-size: 14px;
     color: #fff;
     border: 2px solid rgb(202, 199, 38);

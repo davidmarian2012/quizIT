@@ -25,40 +25,40 @@ export class QuestionComponent implements OnInit {
     this.selectedAnswer = this.answers[0];
     this.gameService.selectedAnswer = this.answers[0];
 
-    document.getElementById('answer-1')!.style.backgroundColor='rgba(131, 177, 130, 0.3)';
-    document.getElementById('answer-2')!.style.backgroundColor='transparent';
-    document.getElementById('answer-3')!.style.backgroundColor='transparent';
-    document.getElementById('answer-4')!.style.backgroundColor='transparent';
+    document.getElementById('answer-1')!.style.backgroundColor='rgba(223, 236, 34, 0.500)';
+    document.getElementById('answer-2')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-3')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-4')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
   }
 
   selectAnswer2(): any{
     this.selectedAnswer = this.answers[1];
     this.gameService.selectedAnswer = this.answers[1];
     
-    document.getElementById('answer-1')!.style.backgroundColor='transparent';
-    document.getElementById('answer-2')!.style.backgroundColor='rgba(131, 177, 130, 0.3)';
-    document.getElementById('answer-3')!.style.backgroundColor='transparent';
-    document.getElementById('answer-4')!.style.backgroundColor='transparent';
+    document.getElementById('answer-1')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-2')!.style.backgroundColor='rgba(223, 236, 34, 0.500)';
+    document.getElementById('answer-3')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-4')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
   }
 
   selectAnswer3(): any{
     this.selectedAnswer = this.answers[2];
     this.gameService.selectedAnswer = this.answers[2];
     
-    document.getElementById('answer-1')!.style.backgroundColor='transparent';
-    document.getElementById('answer-2')!.style.backgroundColor='transparent';
-    document.getElementById('answer-3')!.style.backgroundColor='rgba(131, 177, 130, 0.3)';
-    document.getElementById('answer-4')!.style.backgroundColor='transparent';
+    document.getElementById('answer-1')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-2')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-3')!.style.backgroundColor='rgba(223, 236, 34, 0.500)';
+    document.getElementById('answer-4')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
   }
 
   selectAnswer4(): any{
     this.selectedAnswer = this.answers[3];
     this.gameService.selectedAnswer = this.answers[3];
     
-    document.getElementById('answer-1')!.style.backgroundColor='transparent';
-    document.getElementById('answer-2')!.style.backgroundColor='transparent';
-    document.getElementById('answer-3')!.style.backgroundColor='transparent';
-    document.getElementById('answer-4')!.style.backgroundColor='rgba(131, 177, 130, 0.3)';
+    document.getElementById('answer-1')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-2')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-3')!.style.backgroundColor='rgba(223, 236, 34, 0.082)';
+    document.getElementById('answer-4')!.style.backgroundColor='rgba(223, 236, 34, 0.500)';
   }
 
   submitAnswer(): any{

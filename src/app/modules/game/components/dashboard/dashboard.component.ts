@@ -20,25 +20,25 @@ export class DashboardComponent implements OnInit {
   selectGame1(): any{
     this.gameMode = 1;
     this.gameService.gameMode = 1;
-    document.getElementById('game-1')!.style.backgroundColor='rgb(240, 236, 13)';
-    document.getElementById('game-2')!.style.backgroundColor='rgb(182, 179, 40)';
-    document.getElementById('game-3')!.style.backgroundColor='rgb(182, 179, 40)';
+    document.getElementById('game-1')!.style.backgroundColor='rgba(214, 201, 25, 0.403)';
+    document.getElementById('game-2')!.style.backgroundColor='rgba(214, 201, 25, 0.103)';
+    document.getElementById('game-3')!.style.backgroundColor='rgba(214, 201, 25, 0.103)';
   }
 
   selectGame2(): any{
     this.gameMode = 2;
     this.gameService.gameMode = 2;
-    document.getElementById('game-1')!.style.backgroundColor='rgb(182, 179, 40)';
-    document.getElementById('game-2')!.style.backgroundColor='rgb(240, 236, 13)';
-    document.getElementById('game-3')!.style.backgroundColor='rgb(182, 179, 40)';
+    document.getElementById('game-1')!.style.backgroundColor='rgba(214, 201, 25, 0.103)';
+    document.getElementById('game-2')!.style.backgroundColor='rgba(214, 201, 25, 0.403)';
+    document.getElementById('game-3')!.style.backgroundColor='rgba(214, 201, 25, 0.103)';
   }
 
   selectGame3(): any{
     this.gameMode = 3;
     this.gameService.gameMode = 3;
-    document.getElementById('game-1')!.style.backgroundColor='rgb(182, 179, 40)';
-    document.getElementById('game-2')!.style.backgroundColor='rgb(182, 179, 40)';
-    document.getElementById('game-3')!.style.backgroundColor='rgb(240, 236, 13)';
+    document.getElementById('game-1')!.style.backgroundColor='rgba(214, 201, 25, 0.103)';
+    document.getElementById('game-2')!.style.backgroundColor='rgba(214, 201, 25, 0.103)';
+    document.getElementById('game-3')!.style.backgroundColor='rgba(214, 201, 25, 0.403)';
   }
 
 }

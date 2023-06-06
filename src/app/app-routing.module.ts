@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'add-question', component: AddQuestionComponent},
   {path: 'add-numerical', component: NumericalQuestionComponent},
   {path: 'add-multi', component: MultiQuestionComponent},
-  {path: 'game', component: GameRoundComponent},
+  {path: 'classic', component: GameRoundComponent},
   {path: 'rankings', component: RankingsComponent},
   {path: 'reset', component: ForgotComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},

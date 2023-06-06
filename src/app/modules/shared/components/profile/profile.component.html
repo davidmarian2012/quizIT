@@ -1,7 +1,7 @@
 <div class="container">
     <app-header></app-header>
     <div class="title-page">
-        <img src="../../../../../assets/ribbon-profile.png" alt="ribbon" class="ribbon">
+        <img src="../../../../../assets/profile.png" alt="ribbon" class="ribbon">
     </div>
     
     <div [formGroup]="form" class="login-container">
@@ -9,17 +9,17 @@
             <h2>{{capitalizedUsername}}</h2>
         </div>
 
-        <div class="login-row">
+        <div class="info-row">
             <label for="username">Rank</label>
             <label for="username" class="small-label">{{playerRank}}</label>
         </div>
-        
-        <div class="login-row">
+
+        <div class="info-row">
             <label for="username">Points</label>
             <label for="username" class="small-label">{{points}}</label>
         </div>
 
-        <div class="login-row">
+        <div class="info-row">
             <label for="username">Member since</label>
             <label for="username" class="small-label">{{createdAt}}</label>
         </div>
