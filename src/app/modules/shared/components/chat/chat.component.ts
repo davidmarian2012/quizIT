@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { first, Observable } from 'rxjs';
 import { ChatService } from '../../services/chat.service';
@@ -89,7 +89,8 @@ export class ChatComponent implements OnInit {
   }
 
   refresh($event: any): void{
-    if($event == true)
+    if($event == true){
       this.ngOnInit();
+    }
   }
 }
