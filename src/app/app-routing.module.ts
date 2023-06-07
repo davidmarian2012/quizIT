@@ -13,6 +13,8 @@ import { AuthGuard } from './modules/shared/guards/auth.guard';
 import { GameRoundComponent } from './modules/game/components/game-round/game-round.component';
 import { RankingsComponent } from './modules/core/components/rankings/rankings.component';
 import { ForgotComponent } from './modules/auth/components/forgot/forgot.component';
+import { WarGameRoundComponent } from './modules/game/components/war-game-round/war-game-round.component';
+import { PracticeGameRoundComponent } from './modules/game/components/practice-game-round/practice-game-round.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path: 'add-numerical', component: NumericalQuestionComponent},
   {path: 'add-multi', component: MultiQuestionComponent},
   {path: 'classic', component: GameRoundComponent},
+  {path: 'extended-war', component: WarGameRoundComponent},
+  {path: 'training', component: PracticeGameRoundComponent},
   {path: 'rankings', component: RankingsComponent},
   {path: 'reset', component: ForgotComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},

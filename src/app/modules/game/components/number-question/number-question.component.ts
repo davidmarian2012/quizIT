@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-number-question',
@@ -10,21 +11,19 @@ export class NumberQuestionComponent implements OnInit {
   @Input() title: string = "";
   @Input() answer: number = 0;
 
-  constructor() { }
+  selectedAnswer: string = "";
+
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
+    this.gameService.answer = this.answer.toString();
   }
 
   submitAnswer(): void{
     let input = document.getElementById('numerical-answer') as HTMLInputElement;
-    let user_input = Number(input.value);
-    if(user_input === this.answer){
-      console.log("Correct!");
-    }
-    else{
-      console.log("Wrong!");
-    }
-    // this.router.navigate(['/q']);
+    
+    this.selectedAnswer = input.value;
+    this.gameService.selectedAnswer = input.value;
   }
 
 }

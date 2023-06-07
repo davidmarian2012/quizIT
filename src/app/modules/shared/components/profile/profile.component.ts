@@ -103,18 +103,9 @@ export class ProfileComponent implements OnInit {
     ])
   })
 
-  // loginUser(): void{
-    
-  //   this.authService.login(this.form.value)
-  //     .pipe(first()).subscribe(
-  //       user => {
-  //         console.log("hello");
-  //       },
-  //       () => {
-  //         this.wrongLogin = true;
-  //         this.router.navigate(['/dashboard']);
-  //       }
-  //     );
-  // }
+  formatNumber(num: any) {
+    let roundedNum = num.toFixed(1);
+    return num % 1 === 0 ? parseInt(roundedNum) : roundedNum;
+  }
 
 }

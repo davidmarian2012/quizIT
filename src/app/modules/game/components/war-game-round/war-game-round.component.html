@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="questions" *ngFor="let q of randomizedMultiAnswerQuestions$ | async; let i = index">
+        <app-question [title]="q.question" 
+                      [answers]="q.answers"
+                      [answer]="q.correct"
+                      *ngIf="i===questionNumber && i < 15">
+        </app-question>
+    </div>
+
+    <div class="results" *ngIf="questionNumber > 14">
+        <div class="results-title">Round results</div>
+        <div class="results-row">Correct multi: {{correctMulti}}</div>
+        <div class="results-row">Earned points: {{correctMulti * 0.3}}</div>
+    </div>
+    <img src="../../../../../assets/arrow.png" alt="send" (click)="submitAnswer()" class="send-arrow">
+</div>

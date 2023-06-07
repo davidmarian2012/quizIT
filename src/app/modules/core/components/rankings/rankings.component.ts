@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, map, take, toArray } from 'rxjs';
 import { AuthenticationService } from 'src/app/modules/auth/services/authentication.service';
-import { Paginator } from './Paginator'
 
 @Component({
   selector: 'app-rankings',
@@ -45,6 +44,11 @@ export class RankingsComponent implements OnInit {
     ); 
 
     this.rankMultiply = page-1;
+  }
+
+  formatNumber(num: any) {
+    let roundedNum = num.toFixed(1);
+    return num % 1 === 0 ? parseInt(roundedNum) : roundedNum;
   }
 
 }

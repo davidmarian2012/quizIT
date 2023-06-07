@@ -16,7 +16,7 @@
             <div class="user-place">#{{(i+1) + 10 * rankMultiply}}</div>
             <div class="user-name">{{user.username.charAt(0).toUpperCase()}}{{user.username.slice(1)}}</div>
             <div class="user-rank">{{user.points == 0 ? "Beginner" : "Wizard"}}</div>
-            <div class="user-points">{{user.points}}</div>
+            <div class="user-points">{{formatNumber(user.points)}}</div>
         </div>
 
         <div class="pages">

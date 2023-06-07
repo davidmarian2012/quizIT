@@ -70,10 +70,7 @@ export class QuestionComponent implements OnInit {
     }
 
     this.gameService.questionNumber += 1;
-    console.log(this.gameService.questionNumber);
     this.ngOnInit();
-    
-    // this.router.navigate(['/q2']);
   }
 
 }
