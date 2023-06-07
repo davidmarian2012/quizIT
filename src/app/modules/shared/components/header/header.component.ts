@@ -13,12 +13,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(): any{
-    sessionStorage.setItem("isLogged", "false");
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("hiddenChat");
-    this.router.navigate(['/login']);
-  }
-
 }
