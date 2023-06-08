@@ -5,19 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ForgotComponent } from './components/forgot/forgot.component';
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    SharedModule
-  ],
-  exports: [
-    LoginComponent
-  ]
+  declarations: [LoginComponent, RegisterComponent, ForgotComponent],
+  imports: [CommonModule, ReactiveFormsModule, AppRoutingModule, SharedModule],
+  exports: [LoginComponent, RegisterComponent, ForgotComponent],
 })
-export class AuthModule { }
+export class AuthModule {}

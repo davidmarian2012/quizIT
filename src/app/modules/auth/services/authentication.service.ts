@@ -1,60 +1,131 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { HttpMethods } from '../../shared/enums/http-methods';
 import { HttpService } from '../../shared/services/http.service';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
+import { User } from '../components/interfaces/user';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
+  user: Observable<User>;
+  userSubject: BehaviorSubject<User>;
+  token: string = '';
 
-  isAuthenticated: boolean = false;
+  constructor(private httpService: HttpService, private router: Router) {
+    this.userSubject = new BehaviorSubject<User>(this.getDecodedAccessToken());
+    this.user = this.userSubject.asObservable();
+  }
 
-  constructor(private httpService: HttpService, private router: Router) { }
+  get userValue(): User {
+    return this.userSubject.value;
+  }
 
   register(userInput: any): Observable<any> {
+    const editedUsername = userInput.username.toLowerCase();
+
     const newUser = {
-      "username": userInput.username,
-      "password": userInput.password,
-      "email": userInput.email
-    }
+      username: editedUsername,
+      password: userInput.password,
+      email: userInput.email,
+    };
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
       url: '/user',
       options: {
-        body: newUser
-      }
+        body: newUser,
+      },
     });
-
-    // await fetch("http://localhost:8080/user", {
-    //   method: "POST",
-    //   body: JSON.stringify(newUser),
-    //   headers: {"Content-Type": "application/json"}
-    // })
   }
 
-  login(username: any, password: any): Observable<any>{
+  login(username: any, password: any): Observable<any> {
+    return this.httpService
+      .dispatchData({
+        method: HttpMethods.Post,
+        url: '/user/login',
+        options: {
+          body: { username: username.toLowerCase(), password: password },
+        },
+      })
+      .pipe(
+        map((authResult) => {
+          sessionStorage.setItem('username', username.toLowerCase());
+          sessionStorage.setItem('token', authResult.token);
+          sessionStorage.setItem('hiddenChat', 'false');
+          this.token = authResult.token;
 
-    // const newUser = {
-    //   "username": userInput.username,
-    //   "password": userInput.password,
-    //   "email": userInput.email
-    // }
+          let user = this.getDecodedAccessToken();
+          this.userSubject.next(user);
+
+          return user;
+        })
+      );
+  }
+
+  getDecodedAccessToken(): any {
+    try {
+      return jwtDecode(this.token);
+    } catch (Error) {
+      return null;
+    }
+  }
+
+  getAllUsers(): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Get,
+      url: '/user',
+      options: {},
+    });
+  }
+
+  getAllUsersByPoints(): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Get,
+      url: '/user/usersbypoints',
+      options: {},
+    });
+  }
+
+  getUserByUsername(username: string): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Post,
+      url: '/user/username',
+      options: {
+        body: {
+          username: username,
+        },
+      },
+    });
+  }
+
+  upload(username: string, avatar: File | undefined): Observable<any> {
+    let fd = new FormData();
+
+    fd.append('username', username);
+    fd.append('avatar', avatar!);
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
-      url: '/user/login',
+      url: '/user/upload',
       options: {
-        body: {username: username, password: password}
-      }
+        body: fd,
+      },
     });
+  }
 
-    // await fetch("http://localhost:8080/user/login", {
-    //   method: "POST",
-    //   body: JSON.stringify(newUser),
-    //   headers: {"Content-Type": "application/json"}
-    // })
+  removeAvatar(username: string): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Post,
+      url: '/user/removeAvatar',
+      options: {
+        body: {
+          username: username,
+        },
+      },
+    });
   }
 }

@@ -1,27 +1,40 @@
 <div class="container">
     <app-header></app-header>
     <div class="title-page">
-        <h3>Your profile</h3>
+        <img src="../../../../../assets/profile.png" alt="ribbon" class="ribbon">
     </div>
     
     <div [formGroup]="form" class="login-container">
-        <div class="avatar"><img src="../../../../../assets/avatar.png" alt="avatar">
-            <h2>David</h2>
-        </div>
-        
-        <div class="login-row">
-            <label for="username">Member since</label>
-            <label for="username" class="small-label">22.04.2019</label>
+
+        <dialog class="modal" id="modal">
+            <h2>Are you sure you want to logout?</h2>
+            <div class="buttons">
+                <button autofocus="false" class="logout-btn" (click)="logout()">Logout</button>
+                <button autofocus="false" class="back-btn">Go back</button>
+            </div>
+        </dialog>
+
+        <div class="avatar"><img src="http://localhost:8080/avatar/{{avatar}}" alt="avatar" (click)="choose()">
+            <h2>{{capitalizedUsername}}</h2>
         </div>
 
-        <div class="login-row">
+        <div class="info-row">
             <label for="username">Rank</label>
-            <label for="username" class="small-label">Magic Geek</label>
+            <label for="username" class="small-label" *ngIf="points < 5">Beginner</label>
+            <label for="username" class="small-label" *ngIf="points >= 5 && points < 50">Enthusiast</label>
+            <label for="username" class="small-label" *ngIf="points >= 50 && points < 100">Lazy Programmer</label>
+            <label for="username" class="small-label" *ngIf="points >= 100 && points < 500">Linux Wizard</label>
+            <label for="username" class="small-label" *ngIf="points >= 500">Scrum Master</label>
         </div>
 
-        <div class="login-row">
+        <div class="info-row">
             <label for="username">Points</label>
-            <label for="username" class="small-label">7546</label>
+            <label for="username" class="small-label">{{formatNumber(points)}}</label>
+        </div>
+
+        <div class="info-row">
+            <label for="username">Member since</label>
+            <label for="username" class="small-label">{{createdAt}}</label>
         </div>
 
         <div class="login-row">
@@ -38,6 +51,10 @@
         </div>
         <div class="buttons-container">
             <button type="button" class="login-btn">Change password</button>
+            <button type="button" class="upload-btn" id="upload-btn" (click)="upload()">Upload avatar</button>
+            <button type="button" class="remove-btn" id="remove-btn" (click)="removeAvatar()">Remove avatar</button>
         </div>
+
+        <input type="file" name="avatar" (input)="fileChosen($event)" (change)="onFileSelected($event)" id='avatarInput' [hidden]="true">
     </div>
 </div>

@@ -5,24 +5,31 @@ import { HttpMethods } from '../enums/http-methods';
 import { HttpService } from './http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChatService {
-
-  constructor(private httpService: HttpService, private router: Router) { }
+  constructor(private httpService: HttpService, private router: Router) {}
 
   saveMessage(messageInput: any): Observable<any> {
     const newMessage = {
-      "author": "author",
-      "content": messageInput.content
-    }
+      author: messageInput.author,
+      content: messageInput.content,
+    };
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
       url: '/message',
       options: {
-        body: newMessage
-      }
+        body: newMessage,
+      },
+    });
+  }
+
+  deleteMessage(id: any) {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Delete,
+      url: `/message/${id}`,
+      options: {},
     });
   }
 
@@ -30,7 +37,7 @@ export class ChatService {
     return this.httpService.dispatchData({
       method: HttpMethods.Get,
       url: '/message',
-      options: {}
+      options: {},
     });
   }
 }

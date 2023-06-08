@@ -1,0 +1,20 @@
+<div class="message-row">
+  <div class="message-avatar">
+    <img
+      src="http://localhost:8080/avatar/{{ avatar }}"
+      alt="avatar"
+      class="avatar-img"
+    />
+  </div>
+
+  <div class="message-details">
+    <h3 class="message-author">{{ message.author }}</h3>
+    <div class="message-box">{{ message.content }}</div>
+  </div>
+  <div class="remove-btn" (click)="deleteMessage()" *ngIf="showDelete">x</div>
+</div>
+<div class="message-date">
+  <h2 class="date">
+    {{ message.createdAt.slice(0, 10) }} {{ message.createdAt.slice(11, 19) }}
+  </h2>
+</div>

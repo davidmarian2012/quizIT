@@ -1,13 +1,65 @@
 <div class="container">
-    <app-header></app-header>
-    <app-chat></app-chat>
-    <div class="middle-space" id="middle-space"></div>
-    <div class="game-modes">
-        <h2>Select type of game</h2>
-        <div class="game-btn" id="game-1" (click)="selectGame1()">Classic</div>
-        <div class="game-btn" id="game-2" (click)="selectGame2()">Extended War</div>
-        <div class="game-btn" id="game-3" (click)="selectGame3()">Training</div>
-        <button class="play-btn" routerLink="/q">Play</button>
+  <app-header></app-header>
+  <app-chat></app-chat>
+
+  <div class="classic-mode-container">
+    <dialog class="modal" id="modal">
+      <h2>Are you sure you want to logout?</h2>
+      <div class="buttons">
+        <button autofocus="false" class="logout-btn" (click)="logout()">
+          Logout
+        </button>
+        <button autofocus="false" class="back-btn">Go back</button>
+      </div>
+    </dialog>
+
+    <div class="game-logo">
+      <img src="../../../../../assets/3.png" alt="logo" class="logo" />
     </div>
-    
+
+    <div class="game-info">
+      <h2>Select game mode</h2>
+      <div class="modes-list">
+        <div class="game-btn" id="game-1" (click)="selectGame1()">
+          <h1>Classic</h1>
+          <div class="line"></div>
+          <div class="rules">
+            <h3>Rules</h3>
+            <h4>Multi-answer questions: 5</h4>
+            <h4>Numerical questions: 5</h4>
+            <h4>Earnable ranking points</h4>
+          </div>
+        </div>
+        <div class="game-btn" id="game-2" (click)="selectGame2()">
+          <h1>Extended War</h1>
+          <div class="line"></div>
+          <div class="rules">
+            <h3>Rules</h3>
+            <h4>Multi-answer questions: 15</h4>
+            <h4>No numerical questions</h4>
+            <h4>Earnable ranking points</h4>
+          </div>
+        </div>
+        <div class="game-btn" id="game-3" (click)="selectGame3()">
+          <h1>Training</h1>
+          <div class="line"></div>
+          <div class="rules">
+            <h3>Rules</h3>
+            <h4>Infinite questions</h4>
+            <h4>No earnable ranking points</h4>
+          </div>
+        </div>
+      </div>
+
+      <button class="play-btn" routerLink="/classic" *ngIf="gameMode == 1">
+        Start Game
+      </button>
+      <button class="play-btn" routerLink="/extended-war" *ngIf="gameMode == 2">
+        Start Game
+      </button>
+      <button class="play-btn" routerLink="/training" *ngIf="gameMode == 3">
+        Start Game
+      </button>
+    </div>
+  </div>
 </div>

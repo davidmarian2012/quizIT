@@ -1,0 +1,93 @@
+<div class="container">
+  <div
+    class="questions"
+    *ngFor="let q of randomizedMultiAnswerQuestions$ | async; let i = index"
+  >
+    <app-question
+      [title]="q.question"
+      [answers]="q.answers"
+      [answer]="q.correct"
+      *ngIf="i === questionNumber && i < totalMulti"
+    >
+    </app-question>
+  </div>
+
+  <div
+    class="questions"
+    *ngFor="let q of randomizedNumericalQuestions$ | async; let i = index"
+  >
+    <app-number-question
+      [title]="q.question"
+      [answer]="q.answer"
+      *ngIf="
+        i === questionNumber - totalMulti &&
+        questionNumber >= totalMulti &&
+        questionNumber < totalNumerical + totalMulti
+      "
+    >
+    </app-number-question>
+  </div>
+
+  <div class="results" *ngIf="questionNumber >= totalMulti + totalNumerical">
+    <div class="results-title">Round results</div>
+
+    <div class="points-overview">
+      <div class="results-row">
+        Correct answers: {{ correctMulti + correctNumerical }} /
+        {{ seenMulti + seenNumerical }}
+      </div>
+    </div>
+
+    <div
+      *ngFor="let index of getRange(seenMulti); let i = index"
+      class="question-overview"
+    >
+      <div class="question-row">
+        {{ index + 1 }}. {{ multiQuestions[index].question }}
+      </div>
+      <div
+        class="question-row"
+        [class.wrong]="multiAnswers[index] != multiQuestions[index].correct"
+        [class.correct]="multiAnswers[index] == multiQuestions[index].correct"
+      >
+        Your answer: {{ multiAnswers[index] }}
+      </div>
+      <div class="question-row">
+        Correct answer: {{ multiQuestions[index].correct }}
+      </div>
+    </div>
+
+    <div
+      *ngFor="let index of getRange(seenNumerical); let i = index"
+      class="question-overview"
+    >
+      <div class="question-row">
+        {{ index + seenMulti + 1 }}. {{ numQuestions[index].question }}
+      </div>
+      <div
+        class="question-row"
+        [class.wrong]="numAnswers[index] != numQuestions[index].answer"
+        [class.correct]="numAnswers[index] == numQuestions[index].answer"
+      >
+        Your answer: {{ numAnswers[index] }}
+      </div>
+      <div class="question-row">
+        Correct answer: {{ numQuestions[index].answer }}
+      </div>
+    </div>
+  </div>
+  <div class="imgs">
+    <img
+      src="../../../../../assets/done.png"
+      alt="results"
+      (click)="toResults()"
+      class="done-arrow"
+    />
+    <img
+      src="../../../../../assets/arrow.png"
+      alt="send"
+      (click)="submitAnswer()"
+      class="send-arrow"
+    />
+  </div>
+</div>

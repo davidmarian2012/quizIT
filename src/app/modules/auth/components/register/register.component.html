@@ -1,75 +1,128 @@
 <div class="container">
-    <div class="logo-shell">
-        <img src="../../../../../assets/3.png" alt="">
-        <img src="../../../../../assets/ribbon-register.png" alt="ribbon" class="ribbon">
+  <div class="logo-shell">
+    <img
+      src="../../../../../assets/3.png"
+      alt="logo"
+      routerLink="/login"
+      style="cursor: pointer"
+    />
+    <h3>A thrilling trivia game for tech enthusiasts</h3>
+    <img src="../../../../../assets/register.png" alt="ribbon" class="ribbon" />
+  </div>
+
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+
+  <form [formGroup]="form" class="login-container" *ngIf="!loading">
+    <div class="login-row">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Enter your username"
+      />
+
+      <div class="error-message">
+        <div
+          *ngIf="form.controls['username'].errors?.['required'] && form.controls['username'].dirty"
+        >
+          Username is required.
+        </div>
+        <div
+          *ngIf="form.controls['username'].errors?.['minlength'] && form.controls['username'].dirty"
+        >
+          Username must be at least 3 characters long.
+        </div>
+        <div
+          *ngIf="form.controls['username'].errors?.['maxlength'] && form.controls['username'].dirty"
+        >
+          Username must be max 30 characters long.
+        </div>
+      </div>
     </div>
+    <div class="login-row">
+      <label for="email">Email</label>
+      <input formControlName="email" placeholder="Enter your email" />
 
-    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
-    
-    <div [formGroup]="form" class="login-container" *ngIf="!loading">
-        <div class="login-row">
-            <label for="username">Username</label>
-            <input type="text" formControlName="username" placeholder="Enter your username">
-            
-            <div class="error-message">
-                <div *ngIf="form.controls['username'].errors?.['required'] && form.controls['username'].dirty">
-                    Username is required.
-                </div>
-                <div *ngIf="form.controls['username'].errors?.['minlength'] && form.controls['username'].dirty">
-                    Username must be at least 3 characters long.
-                </div>
-                <div *ngIf="form.controls['username'].errors?.['maxlength'] && form.controls['username'].dirty">
-                    Username must be max 30 characters long.
-                </div>
-            </div>
+      <div class="error-message">
+        <div
+          *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].dirty"
+        >
+          Email is required.
         </div>
-        <div class="login-row">
-            <label for="email">Email</label>
-            <input formControlName="email" placeholder="Enter your email">
-
-            <div class="error-message">
-                <div *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].dirty">
-                    Email is required.
-                </div>
-                <div *ngIf="form.controls['email'].errors?.['pattern'] && form.controls['email'].dirty">
-                    Invalid email address.
-                </div>
-            </div>
+        <div
+          *ngIf="form.controls['email'].errors?.['pattern'] && form.controls['email'].dirty"
+        >
+          Invalid email address.
         </div>
-        <div class="login-row">
-            <label for="password">Password</label>
-            <input type="password" formControlName="password" placeholder="Enter your password">
-
-            <div class="error-message">
-                <div *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].dirty">
-                    Password is required.
-                </div>
-                <div *ngIf="form.controls['password'].errors?.['minlength'] && form.controls['password'].dirty">
-                    Password must be at least 3 characters long.
-                </div>
-                <div *ngIf="form.controls['password'].errors?.['maxlength'] && form.controls['password'].dirty">
-                    Password must be max 30 characters long.
-                </div>
-            </div>
-        </div>
-        <div class="login-row">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" formControlName="confirmPassword" placeholder="Confirm your password">
-
-            <div class="error-message">
-                <div *ngIf="form.controls['confirmPassword'].errors?.['required'] && form.controls['confirmPassword'].dirty">
-                    Password confirmation is required.
-                </div>
-                <div *ngIf="this.form.get('confirmPassword')?.value != this.form.get('password')?.value && form.controls['confirmPassword'].dirty">
-                    Passwords do not match.
-                </div>
-            </div>
-        </div>
-        <div class="buttons-container">
-            <button type="submit" [disabled]="!form.valid" class="login-btn" (click)="registerUser()">Create account</button>
-            <button type="button" class="create-btn" routerLink="/login">I already have an account</button>
-        </div>
-        <div *ngIf="takenUsername" class="takenUsername">Username already taken</div>
-        <div *ngIf="takenEmail" class="takenEmail">Email already taken</div>
+      </div>
     </div>
+    <div class="login-row">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+
+      <div class="error-message">
+        <div
+          *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].dirty"
+        >
+          Password is required.
+        </div>
+        <div
+          *ngIf="form.controls['password'].errors?.['minlength'] && form.controls['password'].dirty"
+        >
+          Password must be at least 3 characters long.
+        </div>
+        <div
+          *ngIf="form.controls['password'].errors?.['maxlength'] && form.controls['password'].dirty"
+        >
+          Password must be max 30 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="login-row">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        formControlName="confirmPassword"
+        placeholder="Confirm your password"
+      />
+
+      <div class="error-message">
+        <div
+          *ngIf="form.controls['confirmPassword'].errors?.['required'] && form.controls['confirmPassword'].dirty"
+        >
+          Password confirmation is required.
+        </div>
+        <div
+          *ngIf="
+            this.form.get('confirmPassword')?.value !=
+              this.form.get('password')?.value &&
+            form.controls['confirmPassword'].dirty
+          "
+        >
+          Passwords do not match.
+        </div>
+      </div>
+    </div>
+    <div class="buttons-container">
+      <button
+        type="submit"
+        [disabled]="!form.valid"
+        class="login-btn"
+        (click)="registerUser()"
+      >
+        Create account
+      </button>
+      <button type="button" class="create-btn" routerLink="/login">
+        I already have an account
+      </button>
+    </div>
+    <div *ngIf="takenUsername" class="takenUsername">
+      Username already taken
+    </div>
+    <div *ngIf="takenEmail" class="takenEmail">Email already taken</div>
+  </form>
 </div>

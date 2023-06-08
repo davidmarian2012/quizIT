@@ -1,0 +1,13 @@
+<div class="question-container">
+  <div class="question">{{ title }}</div>
+  <form class="answer-container">
+    <input
+      id="numerical-answer"
+      type="number"
+      class="number-input"
+      placeholder="Your answer"
+      autofocus
+      (keydown)="preventEnterKeyPress($event)"
+    />
+  </form>
+</div>
