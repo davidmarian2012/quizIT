@@ -8,10 +8,9 @@ import { User } from '../components/interfaces/user';
 import { HttpParams } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
-
   user: Observable<User>;
   userSubject: BehaviorSubject<User>;
   token: string = '';
@@ -19,7 +18,7 @@ export class AuthenticationService {
   constructor(private httpService: HttpService, private router: Router) {
     this.userSubject = new BehaviorSubject<User>(this.getDecodedAccessToken());
     this.user = this.userSubject.asObservable();
-   }
+  }
 
   get userValue(): User {
     return this.userSubject.value;
@@ -29,40 +28,42 @@ export class AuthenticationService {
     const editedUsername = userInput.username.toLowerCase();
 
     const newUser = {
-      "username": editedUsername,
-      "password": userInput.password,
-      "email": userInput.email
-    }
+      username: editedUsername,
+      password: userInput.password,
+      email: userInput.email,
+    };
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
       url: '/user',
       options: {
-        body: newUser
-      }
+        body: newUser,
+      },
     });
   }
 
-  login(username: any, password: any): Observable<any>{
-    return this.httpService.dispatchData({
-      method: HttpMethods.Post,
-      url: '/user/login',
-      options: {
-        body: {username: username.toLowerCase(), password: password}
-      }
-     }
-    ).pipe(map(authResult => {
+  login(username: any, password: any): Observable<any> {
+    return this.httpService
+      .dispatchData({
+        method: HttpMethods.Post,
+        url: '/user/login',
+        options: {
+          body: { username: username.toLowerCase(), password: password },
+        },
+      })
+      .pipe(
+        map((authResult) => {
+          sessionStorage.setItem('username', username.toLowerCase());
+          sessionStorage.setItem('token', authResult.token);
+          sessionStorage.setItem('hiddenChat', 'false');
+          this.token = authResult.token;
 
-      sessionStorage.setItem('username', username.toLowerCase());
-      sessionStorage.setItem('token', authResult.token);
-      sessionStorage.setItem('hiddenChat', 'false');
-      this.token = authResult.token;
+          let user = this.getDecodedAccessToken();
+          this.userSubject.next(user);
 
-      let user = this.getDecodedAccessToken();
-      this.userSubject.next(user);
-      
-      return user;
-    }));
+          return user;
+        })
+      );
   }
 
   getDecodedAccessToken(): any {
@@ -77,7 +78,7 @@ export class AuthenticationService {
     return this.httpService.dispatchData({
       method: HttpMethods.Get,
       url: '/user',
-      options: {}
+      options: {},
     });
   }
 
@@ -85,7 +86,7 @@ export class AuthenticationService {
     return this.httpService.dispatchData({
       method: HttpMethods.Get,
       url: '/user/usersbypoints',
-      options: {}
+      options: {},
     });
   }
 
@@ -95,16 +96,15 @@ export class AuthenticationService {
       url: '/user/username',
       options: {
         body: {
-          username: username
-        }
-      }
+          username: username,
+        },
+      },
     });
   }
 
   upload(username: string, avatar: File | undefined): Observable<any> {
-
     let fd = new FormData();
-    
+
     fd.append('username', username);
     fd.append('avatar', avatar!);
 
@@ -112,10 +112,9 @@ export class AuthenticationService {
       method: HttpMethods.Post,
       url: '/user/upload',
       options: {
-        body: 
-          fd
-      }
-    })
+        body: fd,
+      },
+    });
   }
 
   removeAvatar(username: string): Observable<any> {
@@ -124,10 +123,9 @@ export class AuthenticationService {
       url: '/user/removeAvatar',
       options: {
         body: {
-          username: username
-        }
-      }
-    })
+          username: username,
+        },
+      },
+    });
   }
-
 }

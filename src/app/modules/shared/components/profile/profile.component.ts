@@ -8,10 +8,9 @@ import { AuthenticationService } from 'src/app/modules/auth/services/authenticat
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-
   wrongLogin: boolean = false;
   points: number = 1;
   createdAt: any;
@@ -19,22 +18,28 @@ export class ProfileComponent implements OnInit {
 
   public image: File | undefined;
   public username = sessionStorage.getItem('username') as string;
-  public capitalizedUsername = this.username.charAt(0).toUpperCase() + this.username.slice(1);
+  public capitalizedUsername =
+    this.username.charAt(0).toUpperCase() + this.username.slice(1);
   public user$: Observable<any>;
 
-  constructor(private router: Router, private authService: AuthenticationService) {
+  constructor(
+    private router: Router,
+    private authService: AuthenticationService
+  ) {
     this.user$ = this.authService.getUserByUsername(this.username);
-   }
+  }
 
   ngOnInit(): void {
-    const uploadButton = document.getElementById('upload-btn') as HTMLButtonElement;
+    const uploadButton = document.getElementById(
+      'upload-btn'
+    ) as HTMLButtonElement;
     uploadButton.disabled = true;
 
-    this.user$.subscribe(user => {
+    this.user$.subscribe((user) => {
       this.points = user.points;
       this.avatar = user.avatar;
-      this.createdAt = user.createdAt.substring(0,10);
-    })
+      this.createdAt = user.createdAt.substring(0, 10);
+    });
 
     const modal = document.querySelector('.modal') as HTMLDialogElement;
     const openModal = document.querySelector('.logout-header-btn');
@@ -42,60 +47,61 @@ export class ProfileComponent implements OnInit {
 
     openModal?.addEventListener('click', () => {
       modal?.showModal();
-    })
+    });
 
     closeModal?.addEventListener('click', () => {
       modal?.close();
-    })
+    });
   }
 
   fileChosen(event: any): void {
-    if(event.target.value){
+    if (event.target.value) {
       this.image = <File>event.target.files[0];
     }
-    const uploadButton = document.getElementById('upload-btn') as HTMLButtonElement;
+    const uploadButton = document.getElementById(
+      'upload-btn'
+    ) as HTMLButtonElement;
     uploadButton.disabled = false;
     uploadButton.style.cursor = 'pointer';
     uploadButton.style.backgroundColor = 'rgb(202, 199, 38)';
   }
-  
-  upload(){
+
+  upload() {
     const username = sessionStorage.getItem('username') as string;
     this.authService.upload(username, this.image).subscribe(
       () => {
         this.ngOnInit();
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
   }
 
-  removeAvatar(){
-    if(this.avatar !== 'avatar.png'){
+  removeAvatar() {
+    if (this.avatar !== 'avatar.png') {
       const username = sessionStorage.getItem('username') as string;
-      
+
       this.authService.removeAvatar(username).subscribe(
         () => {
           this.ngOnInit();
         },
-        error => {
+        (error) => {
           console.log(error);
         }
       );
-      }
-    
+    }
   }
 
-  logout(): any{
-    sessionStorage.setItem("isLogged", "false");
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("hiddenChat");
+  logout(): any {
+    sessionStorage.setItem('isLogged', 'false');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('hiddenChat');
     this.router.navigate(['/login']);
   }
 
-  choose(){
+  choose() {
     document.getElementById('avatarInput')?.click();
   }
 
@@ -104,17 +110,12 @@ export class ProfileComponent implements OnInit {
   }
 
   form = new FormGroup({
-    oldpassword: new FormControl('', [
-      Validators.required
-    ]),
-    newpassword: new FormControl('', [
-      Validators.required
-    ])
-  })
+    oldpassword: new FormControl('', [Validators.required]),
+    newpassword: new FormControl('', [Validators.required]),
+  });
 
   formatNumber(num: any) {
     let roundedNum = num.toFixed(1);
     return num % 1 === 0 ? parseInt(roundedNum) : roundedNum;
   }
-
 }

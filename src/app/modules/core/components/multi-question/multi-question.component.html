@@ -1,42 +1,67 @@
 <div class="container">
-    <app-header></app-header>
+  <app-header></app-header>
 
-    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
 
-    <div class="title-page">
-        <img src="../../../../../assets/add.png" alt="ribbon" class="ribbon">
+  <div class="title-page">
+    <img src="../../../../../assets/add.png" alt="ribbon" class="ribbon" />
+  </div>
+
+  <form [formGroup]="form" class="form-container">
+    <div class="form-row">
+      <label for="username">Question</label>
+      <input
+        formControlName="question"
+        placeholder="Add an interesting question"
+      />
+
+      <div class="error-message"></div>
     </div>
-    
-    <form [formGroup]="form" class="form-container">
-        <div class="form-row">
-            <label for="username">Question</label>
-            <input formControlName="question" placeholder="Add an interesting question">
 
-            <div class="error-message"></div>
-        </div>
+    <div class="form-row">
+      <label for="choices">Answer Choices</label>
+      <input
+        formControlName="firstanswer"
+        placeholder="First answer choice"
+        class="answer-choice"
+      />
+      <input
+        formControlName="secondanswer"
+        placeholder="Second answer choice"
+        class="answer-choice"
+      />
+      <input
+        formControlName="thirdanswer"
+        placeholder="Third answer choice"
+        class="answer-choice"
+      />
+      <input
+        formControlName="fourthanswer"
+        placeholder="Fourth answer choice"
+        class="answer-choice"
+      />
 
-        <div class="form-row">
-            <label for="choices">Answer Choices</label>
-            <input formControlName="firstanswer" placeholder="First answer choice" class="answer-choice">
-            <input formControlName="secondanswer" placeholder="Second answer choice" class="answer-choice">
-            <input formControlName="thirdanswer" placeholder="Third answer choice" class="answer-choice">
-            <input formControlName="fourthanswer" placeholder="Fourth answer choice" class="answer-choice">
+      <div class="error-message"></div>
+    </div>
 
-            <div class="error-message"></div>
-        </div>
+    <div class="form-row">
+      <label for="correct">Correct Answer</label>
 
-        <div class="form-row">
-            <label for="correct">Correct Answer</label>
-            
-            <input formControlName="correctanswer" placeholder="Correct answer choice" class="answer-choice">
+      <input
+        formControlName="correctanswer"
+        placeholder="Correct answer choice"
+        class="answer-choice"
+      />
 
-            <div class="error-message"></div>
-        </div>
+      <div class="error-message"></div>
+    </div>
 
-        <div class="buttons-container">
-            <button type="submit" class="submit-btn" (click)="addQuestion()">Add question</button>
-        </div>
+    <div class="buttons-container">
+      <button type="submit" class="submit-btn" (click)="addQuestion()">
+        Add question
+      </button>
+    </div>
 
-        <div *ngIf="success" class="success">Question successfully added</div>
-    </form>
+    <div *ngIf="success" class="success">Question successfully added</div>
+  </form>
 </div>

@@ -16,20 +16,16 @@ import { PracticeGameRoundComponent } from './components/practice-game-round/pra
     NumberQuestionComponent,
     GameRoundComponent,
     WarGameRoundComponent,
-    PracticeGameRoundComponent
+    PracticeGameRoundComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    AppRoutingModule
-  ],
+  imports: [CommonModule, SharedModule, AppRoutingModule],
   exports: [
     DashboardComponent,
     QuestionComponent,
     NumberQuestionComponent,
     GameRoundComponent,
     PracticeGameRoundComponent,
-    WarGameRoundComponent
-  ]
+    WarGameRoundComponent,
+  ],
 })
-export class GameModule { }
+export class GameModule {}

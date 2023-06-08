@@ -1,27 +1,27 @@
-header{
-    width: 100vw;
-    height: 8vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
+header {
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
 }
 
-.link-box{
-    color: #fff;
-    background-color: rgba(46, 44, 44, 0.562);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.link-box {
+  color: #fff;
+  background-color: rgba(46, 44, 44, 0.562);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.link-box:not(:last-child){
-    border-right: 1px solid rgba(32, 32, 32, 0.336);
+.link-box:not(:last-child) {
+  border-right: 1px solid rgba(32, 32, 32, 0.336);
 }
 
-.link-box:hover{
-    background-color: rgba(46, 44, 44, 0.671);
+.link-box:hover {
+  background-color: rgba(46, 44, 44, 0.671);
 }

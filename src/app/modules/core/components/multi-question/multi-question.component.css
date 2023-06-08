@@ -1,111 +1,111 @@
-.container{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    align-items: center;
-    background: url('../../../../../assets/bg-classic.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  background: url("../../../../../assets/bg-classic.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.small-label{
-    color: grey;
-    font-size: 14px;
+.small-label {
+  color: grey;
+  font-size: 14px;
 }
 
-.title-page{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 75px;
+.title-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 75px;
 }
 
-.form-container{
-    background-color: rgba(31, 29, 29, 0.89);
-    padding: 50px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 2px;
-    border: 1px solid rgb(202, 199, 38);
-    color: #fff;
+.form-container {
+  background-color: rgba(31, 29, 29, 0.89);
+  padding: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 2px;
+  border: 1px solid rgb(202, 199, 38);
+  color: #fff;
 }
 
-.form-row{
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin: 20px 0;
-    font-weight: 500;
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 20px 0;
+  font-weight: 500;
 }
 
-input{
-    height: 35px;
-    width: 225px;
-    padding: 10px;
-    border-radius: 1px;
-    border: 0;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    background-color: rgb(22, 21, 21);
-    color: #fff;
+input {
+  height: 35px;
+  width: 225px;
+  padding: 10px;
+  border-radius: 1px;
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: rgb(22, 21, 21);
+  color: #fff;
 }
 
-.buttons-container{
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:20px;
+.buttons-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.submit-btn{
-    cursor: pointer;
-    height: 35px;
-    width: 225px;
-    border-radius: 1px;
-    border: 0;
-    font-weight: 700;
-    background-color: rgb(202, 199, 38);
-    color: rgba(31, 29, 29, 0.89);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    transition: 0.2s;
-    font-size: 14px;
+.submit-btn {
+  cursor: pointer;
+  height: 35px;
+  width: 225px;
+  border-radius: 1px;
+  border: 0;
+  font-weight: 700;
+  background-color: rgb(202, 199, 38);
+  color: rgba(31, 29, 29, 0.89);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: 0.2s;
+  font-size: 14px;
 }
 
-.submit-btn:hover{
-    background-color: rgb(230, 226, 36);
+.submit-btn:hover {
+  background-color: rgb(230, 226, 36);
 }
 
-.create-btn{
-    cursor: pointer;
-    height: 35px;
-    width: 225px;
-    border-radius: 3px;
-    font-weight: 700;
-    background-color: rgb(236, 233, 233);
-    border: 2px solid rgb(69, 118, 75);
-    color:  rgb(69, 118, 75);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    transition: 0.2s;
+.create-btn {
+  cursor: pointer;
+  height: 35px;
+  width: 225px;
+  border-radius: 3px;
+  font-weight: 700;
+  background-color: rgb(236, 233, 233);
+  border: 2px solid rgb(69, 118, 75);
+  color: rgb(69, 118, 75);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: 0.2s;
 }
 
-.create-btn:hover{
-    border: 2px solid rgb(80, 136, 86);
-    color: rgb(80, 136, 86);
+.create-btn:hover {
+  border: 2px solid rgb(80, 136, 86);
+  color: rgb(80, 136, 86);
 }
 
-.avatar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.success{
-    margin-top: 20px;
-    color: green;
-    font-weight: 700;
+.success {
+  margin-top: 20px;
+  color: green;
+  font-weight: 700;
 }

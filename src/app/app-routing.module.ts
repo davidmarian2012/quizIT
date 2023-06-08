@@ -17,26 +17,30 @@ import { WarGameRoundComponent } from './modules/game/components/war-game-round/
 import { PracticeGameRoundComponent } from './modules/game/components/practice-game-round/practice-game-round.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'q', component: QuestionComponent},
-  {path: 'q2', component: NumberQuestionComponent},
-  {path: 'add-question', component: AddQuestionComponent},
-  {path: 'add-numerical', component: NumericalQuestionComponent},
-  {path: 'add-multi', component: MultiQuestionComponent},
-  {path: 'classic', component: GameRoundComponent},
-  {path: 'extended-war', component: WarGameRoundComponent},
-  {path: 'training', component: PracticeGameRoundComponent},
-  {path: 'rankings', component: RankingsComponent},
-  {path: 'reset', component: ForgotComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: '**', pathMatch: 'full', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'q', component: QuestionComponent },
+  { path: 'q2', component: NumberQuestionComponent },
+  { path: 'add-question', component: AddQuestionComponent },
+  { path: 'add-numerical', component: NumericalQuestionComponent },
+  { path: 'add-multi', component: MultiQuestionComponent },
+  { path: 'classic', component: GameRoundComponent },
+  { path: 'extended-war', component: WarGameRoundComponent },
+  { path: 'training', component: PracticeGameRoundComponent },
+  { path: 'rankings', component: RankingsComponent },
+  { path: 'reset', component: ForgotComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '**', pathMatch: 'full', component: LoginComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

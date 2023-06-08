@@ -5,40 +5,39 @@ import { HttpMethods } from '../../shared/enums/http-methods';
 import { HttpService } from '../../shared/services/http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuestionService {
-
-  constructor(private httpService: HttpService, private router: Router) { }
+  constructor(private httpService: HttpService, private router: Router) {}
 
   saveMultiQuestion(receivedInput: any): Observable<any> {
     const newQuestion = {
-      "question": receivedInput.question,
-      "answers": receivedInput.answers,
-      "correct": receivedInput.correct
-    }
+      question: receivedInput.question,
+      answers: receivedInput.answers,
+      correct: receivedInput.correct,
+    };
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
       url: '/multiquestion',
       options: {
-        body: newQuestion
-      }
+        body: newQuestion,
+      },
     });
   }
 
   saveNumericalQuestion(receivedInput: any): Observable<any> {
     const newQuestion = {
-      "question": receivedInput.question,
-      "answer": receivedInput.answer
-    }
+      question: receivedInput.question,
+      answer: receivedInput.answer,
+    };
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
       url: '/numericalquestion',
       options: {
-        body: newQuestion
-      }
+        body: newQuestion,
+      },
     });
   }
 
@@ -46,7 +45,7 @@ export class QuestionService {
     return this.httpService.dispatchData({
       method: HttpMethods.Get,
       url: '/multiquestion',
-      options: {}
+      options: {},
     });
   }
 
@@ -54,8 +53,7 @@ export class QuestionService {
     return this.httpService.dispatchData({
       method: HttpMethods.Get,
       url: '/numericalquestion',
-      options: {}
+      options: {},
     });
   }
-
 }

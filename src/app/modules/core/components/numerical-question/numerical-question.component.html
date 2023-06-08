@@ -1,32 +1,41 @@
 <div class="container">
-    <app-header></app-header>
+  <app-header></app-header>
 
-    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
 
-    <div class="title-page">
-        <img src="../../../../../assets/add.png" alt="ribbon" class="ribbon">
+  <div class="title-page">
+    <img src="../../../../../assets/add.png" alt="ribbon" class="ribbon" />
+  </div>
+
+  <form [formGroup]="form" class="form-container">
+    <div class="form-row">
+      <label for="username">Question</label>
+      <input
+        formControlName="question"
+        placeholder="Add an interesting question"
+      />
+
+      <div class="error-message"></div>
     </div>
-    
-    <form [formGroup]="form" class="form-container">
-        <div class="form-row">
-            <label for="username">Question</label>
-            <input formControlName="question" placeholder="Add an interesting question">
 
-            <div class="error-message"></div>
-        </div>
+    <div class="form-row">
+      <label for="answer">Answer</label>
+      <input
+        type="number"
+        formControlName="answer"
+        placeholder="Correct Answer"
+        class="answer-choice"
+      />
 
-        <div class="form-row">
-            <label for="answer">Answer</label>
-            <input type='number' formControlName="answer" placeholder="Correct Answer" class="answer-choice">
+      <div class="error-message"></div>
+    </div>
 
-            <div class="error-message"></div>
-        </div>
+    <div class="buttons-container">
+      <button type="submit" class="submit-btn" (click)="addQuestion()">
+        Add question
+      </button>
+    </div>
 
-        <div class="buttons-container">
-            <button type="submit" class="submit-btn" (click)="addQuestion()">Add question</button>
-        </div>
-
-        <div *ngIf="success" class="success">Question successfully added</div>
-
-    </form>
+    <div *ngIf="success" class="success">Question successfully added</div>
+  </form>
 </div>

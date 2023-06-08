@@ -14,19 +14,14 @@ import { MessageComponent } from './components/message/message.component';
     ChatComponent,
     ProfileComponent,
     LoadingSpinnerComponent,
-    MessageComponent
+    MessageComponent,
   ],
-  imports: [
-    CommonModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  exports:[
+  imports: [CommonModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  exports: [
     HeaderComponent,
     ChatComponent,
     ProfileComponent,
-    LoadingSpinnerComponent
-  ]
+    LoadingSpinnerComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

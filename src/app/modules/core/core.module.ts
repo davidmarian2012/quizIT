@@ -13,20 +13,20 @@ import { RankingsComponent } from './components/rankings/rankings.component';
     AddQuestionComponent,
     NumericalQuestionComponent,
     MultiQuestionComponent,
-    RankingsComponent
+    RankingsComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   exports: [
     AddQuestionComponent,
     NumericalQuestionComponent,
     MultiQuestionComponent,
-    RankingsComponent
-  ]
+    RankingsComponent,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

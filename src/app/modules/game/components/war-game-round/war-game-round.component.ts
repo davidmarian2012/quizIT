@@ -8,10 +8,9 @@ import { GameService } from '../../services/game.service';
 @Component({
   selector: 'app-war-game-round',
   templateUrl: './war-game-round.component.html',
-  styleUrls: ['./war-game-round.component.css']
+  styleUrls: ['./war-game-round.component.css'],
 })
 export class WarGameRoundComponent implements OnInit {
-  
   questionNumber = 0;
   correctMulti = 0;
   earnedPoints = 0;
@@ -22,23 +21,28 @@ export class WarGameRoundComponent implements OnInit {
   questions: any[] = [];
   answers: any[] = [];
 
-  constructor(private router: Router, private questionService: QuestionService, private gameService: GameService) { 
-
+  constructor(
+    private router: Router,
+    private questionService: QuestionService,
+    private gameService: GameService
+  ) {
     this.answers = [];
     this.questions = [];
 
     this.multiAnswerQuestions$ = this.questionService.getAllMultiQuestions();
 
     this.randomizedMultiAnswerQuestions$ = this.multiAnswerQuestions$.pipe(
-      map(mutltiAnswerQuestions => {
+      map((mutltiAnswerQuestions) => {
         const randomValues: any[] = [];
-        
-        while(randomValues.length <= Question.war_num_of_multi) {
-            const randomIndex = Math.floor(Math.random() * mutltiAnswerQuestions.length);
-            if(!randomValues.includes(mutltiAnswerQuestions[randomIndex])) {
-              randomValues.push(mutltiAnswerQuestions[randomIndex]);
-              this.questions.push(mutltiAnswerQuestions[randomIndex]);
-            }
+
+        while (randomValues.length <= Question.war_num_of_multi) {
+          const randomIndex = Math.floor(
+            Math.random() * mutltiAnswerQuestions.length
+          );
+          if (!randomValues.includes(mutltiAnswerQuestions[randomIndex])) {
+            randomValues.push(mutltiAnswerQuestions[randomIndex]);
+            this.questions.push(mutltiAnswerQuestions[randomIndex]);
+          }
         }
         return randomValues;
       })
@@ -49,10 +53,9 @@ export class WarGameRoundComponent implements OnInit {
     this.questionNumber = this.gameService.questionNumber;
   }
 
-  submitAnswer(): any{
-    if(this.questionNumber < Question.war_num_of_multi) {
-
-      if(this.gameService.selectedAnswer === this.gameService.answer){
+  submitAnswer(): any {
+    if (this.questionNumber < Question.war_num_of_multi) {
+      if (this.gameService.selectedAnswer === this.gameService.answer) {
         this.correctMulti += 1;
         this.gameService.correctMulti += 1;
       }
@@ -61,33 +64,31 @@ export class WarGameRoundComponent implements OnInit {
       this.questionNumber += 1;
       this.gameService.questionNumber += 1;
       this.ngOnInit();
-
     } else {
-
       this.earnedPoints = this.correctMulti * 0.3;
       this.updatePoints();
       this.gameService.questionNumber = 0;
       this.router.navigate(['/dashboard']);
-
     }
     this.gameService.selectedAnswer = '';
   }
 
-  updatePoints(){
+  updatePoints() {
     const username = sessionStorage.getItem('username') as string;
-    
+
     this.gameService.updatePoints(username, this.earnedPoints).subscribe(
       () => {
         console.log(3);
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
-    }
+  }
 
-    getRange(count: number): number[] {
-      return Array(count).fill(0).map((_, index) => index);
-    }
-
+  getRange(count: number): number[] {
+    return Array(count)
+      .fill(0)
+      .map((_, index) => index);
+  }
 }

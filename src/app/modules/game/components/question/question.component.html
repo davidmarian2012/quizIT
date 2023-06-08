@@ -1,9 +1,17 @@
 <div class="question-container">
-    <div class="question">{{title}}</div>
-    <div class="answers">
-        <div class="answer" id="answer-1" (click)="selectAnswer1()">{{answers[0]}}</div>
-        <div class="answer" id="answer-2" (click)="selectAnswer2()">{{answers[1]}}</div>
-        <div class="answer" id="answer-3" (click)="selectAnswer3()">{{answers[2]}}</div>
-        <div class="answer" id="answer-4" (click)="selectAnswer4()">{{answers[3]}}</div>
+  <div class="question">{{ title }}</div>
+  <div class="answers">
+    <div class="answer" id="answer-1" (click)="selectAnswer1()">
+      {{ answers[0] }}
     </div>
+    <div class="answer" id="answer-2" (click)="selectAnswer2()">
+      {{ answers[1] }}
+    </div>
+    <div class="answer" id="answer-3" (click)="selectAnswer3()">
+      {{ answers[2] }}
+    </div>
+    <div class="answer" id="answer-4" (click)="selectAnswer4()">
+      {{ answers[3] }}
+    </div>
+  </div>
 </div>

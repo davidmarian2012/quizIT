@@ -4,10 +4,9 @@ import { HttpMethods } from '../../shared/enums/http-methods';
 import { HttpService } from '../../shared/services/http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameService {
-
   public gameMode = 1;
   public questionNumber = 0;
   public selectedAnswer = '';
@@ -16,7 +15,7 @@ export class GameService {
   public correctMulti = 0;
   public correctNumerical = 0;
 
-  constructor(private httpService: HttpService) { 
+  constructor(private httpService: HttpService) {
     this.gameMode = 1;
     this.questionNumber = 0;
     this.selectedAnswer = '';
@@ -33,9 +32,9 @@ export class GameService {
       options: {
         body: {
           username: username,
-          earnedPoints: earnedPoints
-        }
-      }
-    })
+          earnedPoints: earnedPoints,
+        },
+      },
+    });
   }
 }
