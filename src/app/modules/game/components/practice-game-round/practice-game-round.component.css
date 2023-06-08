@@ -1,0 +1,82 @@
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../../../../../assets/bg-classic.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.done-arrow{
+    width: 65px;
+    cursor: pointer;
+}
+
+.send-arrow{
+    width: 75px;
+    cursor: pointer;
+}
+
+.imgs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.results{
+    background-color: rgba(31, 29, 29, 0.89);
+    height: 80vh;
+    overflow-y: scroll;
+    padding: 50px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 2px;
+    border: 1px solid rgb(202, 199, 38);
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.points-overview{
+    margin-bottom: 20px;
+}
+
+.results::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+    margin:13px;
+  }
+  
+  .results::-webkit-scrollbar-thumb {
+    background-color: #424242; /* Set the color of the scrollbar thumb */
+    border-radius: 5px; /* Set the border radius of the thumb */
+    margin:13px;
+  }
+  
+  .results::-webkit-scrollbar-thumb:hover {
+    background-color: #5e5e5e; /* Set the color of the thumb on hover */
+  }
+  
+  .results::-webkit-scrollbar-track {
+    background-color: transparent; /* Set the color of the scrollbar track */
+  }
+
+
+.question-overview{
+    margin-bottom: 20px;
+}
+
+.results-title{
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.correct{
+    color: rgb(34, 126, 34);
+}
+
+.wrong{
+    color: rgb(204, 42, 42);
+}

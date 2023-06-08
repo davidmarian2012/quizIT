@@ -13,7 +13,6 @@ import { AuthenticationService } from 'src/app/modules/auth/services/authenticat
 export class ProfileComponent implements OnInit {
 
   wrongLogin: boolean = false;
-  playerRank = '';
   points: number = 1;
   createdAt: any;
   avatar = 'avatar.png';
@@ -37,15 +36,17 @@ export class ProfileComponent implements OnInit {
       this.createdAt = user.createdAt.substring(0,10);
     })
 
-    if(this.points < 100){
-      this.playerRank = 'Beginner';
-    }
-    else if (this.points >= 100 && this.points < 200) {
-      this.playerRank = 'Nerdy Wizard';
-    }
-    else {
-      this.playerRank = 'Great Master';
-    }
+    const modal = document.querySelector('.modal') as HTMLDialogElement;
+    const openModal = document.querySelector('.logout-header-btn');
+    const closeModal = document.querySelector('.back-btn');
+
+    openModal?.addEventListener('click', () => {
+      modal?.showModal();
+    })
+
+    closeModal?.addEventListener('click', () => {
+      modal?.close();
+    })
   }
 
   fileChosen(event: any): void {
@@ -84,6 +85,14 @@ export class ProfileComponent implements OnInit {
       );
       }
     
+  }
+
+  logout(): any{
+    sessionStorage.setItem("isLogged", "false");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("hiddenChat");
+    this.router.navigate(['/login']);
   }
 
   choose(){

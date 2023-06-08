@@ -26,4 +26,10 @@ export class NumberQuestionComponent implements OnInit {
     this.gameService.selectedAnswer = input.value;
   }
 
+  preventEnterKeyPress(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+    }
+}
+
 }

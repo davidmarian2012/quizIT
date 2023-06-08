@@ -19,7 +19,13 @@ export class WarGameRoundComponent implements OnInit {
   public multiAnswerQuestions$: Observable<any>;
   public randomizedMultiAnswerQuestions$: Observable<any>;
 
+  questions: any[] = [];
+  answers: any[] = [];
+
   constructor(private router: Router, private questionService: QuestionService, private gameService: GameService) { 
+
+    this.answers = [];
+    this.questions = [];
 
     this.multiAnswerQuestions$ = this.questionService.getAllMultiQuestions();
 
@@ -31,6 +37,7 @@ export class WarGameRoundComponent implements OnInit {
             const randomIndex = Math.floor(Math.random() * mutltiAnswerQuestions.length);
             if(!randomValues.includes(mutltiAnswerQuestions[randomIndex])) {
               randomValues.push(mutltiAnswerQuestions[randomIndex]);
+              this.questions.push(mutltiAnswerQuestions[randomIndex]);
             }
         }
         return randomValues;
@@ -50,6 +57,7 @@ export class WarGameRoundComponent implements OnInit {
         this.gameService.correctMulti += 1;
       }
 
+      this.answers.push(this.gameService.selectedAnswer);
       this.questionNumber += 1;
       this.gameService.questionNumber += 1;
       this.ngOnInit();
@@ -62,6 +70,7 @@ export class WarGameRoundComponent implements OnInit {
       this.router.navigate(['/dashboard']);
 
     }
+    this.gameService.selectedAnswer = '';
   }
 
   updatePoints(){
@@ -75,6 +84,10 @@ export class WarGameRoundComponent implements OnInit {
         console.log(error);
       }
     );
+    }
+
+    getRange(count: number): number[] {
+      return Array(count).fill(0).map((_, index) => index);
     }
 
 }

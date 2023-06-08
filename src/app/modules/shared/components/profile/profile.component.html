@@ -5,13 +5,26 @@
     </div>
     
     <div [formGroup]="form" class="login-container">
+
+        <dialog class="modal" id="modal">
+            <h2>Are you sure you want to logout?</h2>
+            <div class="buttons">
+                <button autofocus="false" class="logout-btn" (click)="logout()">Logout</button>
+                <button autofocus="false" class="back-btn">Go back</button>
+            </div>
+        </dialog>
+
         <div class="avatar"><img src="http://localhost:8080/avatar/{{avatar}}" alt="avatar" (click)="choose()">
             <h2>{{capitalizedUsername}}</h2>
         </div>
 
         <div class="info-row">
             <label for="username">Rank</label>
-            <label for="username" class="small-label">{{playerRank}}</label>
+            <label for="username" class="small-label" *ngIf="points < 5">Beginner</label>
+            <label for="username" class="small-label" *ngIf="points >= 5 && points < 50">Enthusiast</label>
+            <label for="username" class="small-label" *ngIf="points >= 50 && points < 100">Lazy Programmer</label>
+            <label for="username" class="small-label" *ngIf="points >= 100 && points < 500">Linux Wizard</label>
+            <label for="username" class="small-label" *ngIf="points >= 500">Scrum Master</label>
         </div>
 
         <div class="info-row">

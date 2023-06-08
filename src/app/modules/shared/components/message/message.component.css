@@ -35,7 +35,7 @@
     height: 35px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.781);
+    border: 2px solid rgba(255, 255, 255, 0.404);
 }
 
 .message-details{

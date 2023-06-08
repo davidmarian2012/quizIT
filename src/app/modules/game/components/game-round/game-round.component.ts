@@ -22,10 +22,22 @@ export class GameRoundComponent implements OnInit {
 
   earnedPoints = 0;
 
+  multiQuestions: any[] = [];
+  numQuestions: any[] = [];
+
+  multiAnswers: any[] = [];
+  numAnswers: any[] = [];
+
   public multiAnswerQuestions$: Observable<any>;
   public randomizedMultiAnswerQuestions$: Observable<any>;
 
   constructor(private router: Router, private questionService: QuestionService, private gameService: GameService) { 
+
+    this.multiQuestions = [];
+    this.numQuestions = [];
+
+    this.multiAnswers = [];
+    this.numAnswers = [];
 
     this.numericalQuestions$ = this.questionService.getAllNumericalQuestions();
     this.multiAnswerQuestions$ = this.questionService.getAllMultiQuestions();
@@ -34,10 +46,11 @@ export class GameRoundComponent implements OnInit {
       map(numericalQuestions => {
         const randomValues: any[] = [];
         
-        while(randomValues.length <= Question.classic_num_of_numerical) {
+        while(randomValues.length < Question.classic_num_of_numerical) {
             const randomIndex = Math.floor(Math.random() * numericalQuestions.length);
             if(!randomValues.includes(numericalQuestions[randomIndex])) {
               randomValues.push(numericalQuestions[randomIndex]);
+              this.numQuestions.push(numericalQuestions[randomIndex]);
             }
         }
         return randomValues;
@@ -48,10 +61,11 @@ export class GameRoundComponent implements OnInit {
       map(mutltiAnswerQuestions => {
         const randomValues: any[] = [];
         
-        while(randomValues.length <= Question.classic_num_of_multi) {
+        while(randomValues.length < Question.classic_num_of_multi) {
             const randomIndex = Math.floor(Math.random() * mutltiAnswerQuestions.length);
             if(!randomValues.includes(mutltiAnswerQuestions[randomIndex])) {
               randomValues.push(mutltiAnswerQuestions[randomIndex]);
+              this.multiQuestions.push(mutltiAnswerQuestions[randomIndex]);
             }
         }
         return randomValues;
@@ -71,6 +85,7 @@ export class GameRoundComponent implements OnInit {
         this.gameService.correctMulti += 1;
       }
   
+      this.multiAnswers.push(this.gameService.selectedAnswer);
       this.questionNumber += 1;
       this.gameService.questionNumber += 1;
       this.ngOnInit();
@@ -84,6 +99,7 @@ export class GameRoundComponent implements OnInit {
         this.gameService.correctNumerical += 1;
       }
 
+      this.numAnswers.push(input.value.toString());
       this.questionNumber += 1;
       this.gameService.questionNumber += 1;
       this.ngOnInit();
@@ -96,6 +112,7 @@ export class GameRoundComponent implements OnInit {
       this.router.navigate(['/dashboard']);
 
     }
+    this.gameService.selectedAnswer = '';
   }
 
   updatePoints(){
@@ -109,6 +126,10 @@ export class GameRoundComponent implements OnInit {
         console.log(error);
       }
     );
+    }
+
+    getRange(count: number): number[] {
+      return Array(count).fill(0).map((_, index) => index);
     }
   
 }

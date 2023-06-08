@@ -14,7 +14,7 @@
     </div>
 </div>
 <form class="write-section" [formGroup]="form" id="write-section">
-    <textarea placeholder="Write here..." formControlName="content" id="message-area"></textarea>
+    <textarea placeholder="Write here..." formControlName="content" id="message-area" (keyup.enter)="sendMessage()"></textarea>
     <div class="send-btn-container">
         <img src="../../../../../assets/send.svg" alt="send" (click)="sendMessage()">
     </div>

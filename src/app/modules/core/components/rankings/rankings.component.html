@@ -6,6 +6,14 @@
     </div>
 
     <div class="rankings-container">
+        <dialog class="modal" id="modal">
+            <h2>Are you sure you want to logout?</h2>
+            <div class="buttons">
+                <button autofocus="false" class="logout-btn" (click)="logout()">Logout</button>
+                <button autofocus="false" class="back-btn">Go back</button>
+            </div>
+        </dialog>
+        
         <div class="table-header">
             <div class="user-place">Rank</div>
             <div class="user-name">User</div>
@@ -15,7 +23,11 @@
         <div class="user-info" *ngFor="let user of users$ | async; let i = index">
             <div class="user-place">#{{(i+1) + 10 * rankMultiply}}</div>
             <div class="user-name">{{user.username.charAt(0).toUpperCase()}}{{user.username.slice(1)}}</div>
-            <div class="user-rank">{{user.points == 0 ? "Beginner" : "Wizard"}}</div>
+            <div class="user-rank" *ngIf="user.points < 5">Beginner</div>
+            <div class="user-rank" *ngIf="user.points >= 5 && user.points < 50">Enthusiast</div>
+            <div class="user-rank" *ngIf="user.points >= 50 && user.points < 100">Lazy Programmer</div>
+            <div class="user-rank" *ngIf="user.points >= 100 && user.points < 500">Linux Wizard</div>
+            <div class="user-rank" *ngIf="user.points >= 500">Scrum Master</div>
             <div class="user-points">{{formatNumber(user.points)}}</div>
         </div>
 
