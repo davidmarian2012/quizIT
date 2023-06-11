@@ -152,4 +152,16 @@ export class AuthenticationService {
       },
     });
   }
+
+  forgotPassword(email: string): Observable<any> {
+    return this.httpService.dispatchData({
+      method: HttpMethods.Post,
+      url: '/user/forgot-password',
+      options: {
+        body: {
+          email: email,
+        },
+      },
+    });
+  }
 }
