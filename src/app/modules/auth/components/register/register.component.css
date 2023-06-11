@@ -128,6 +128,18 @@ input {
   font-size: 14px;
 }
 
+.confirmEmail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(80, 126, 53);
+  border: 2px solid rgb(50, 77, 35);
+  padding: 5px;
+  height: 35px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
 label {
   font-size: 14px;
 }
