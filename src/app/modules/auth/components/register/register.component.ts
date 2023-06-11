@@ -13,11 +13,9 @@ export class RegisterComponent implements OnInit {
   takenUsername: boolean = false;
   takenEmail: boolean = false;
   loading: boolean = false;
+  confirmEmail: boolean = false;
 
-  constructor(
-    private authService: AuthenticationService,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthenticationService) {}
 
   ngOnInit(): void {}
 
@@ -67,9 +65,9 @@ export class RegisterComponent implements OnInit {
         .register(this.form.value)
         .pipe(first())
         .subscribe(
-          (user) => {
-            console.log(user);
-            this.router.navigate(['/login']);
+          () => {
+            this.loading = false;
+            this.confirmEmail = true;
           },
           (error) => {
             this.loading = false;

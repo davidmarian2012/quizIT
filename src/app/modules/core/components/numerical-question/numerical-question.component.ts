@@ -23,6 +23,17 @@ export class NumericalQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.questions$ = this.questionService.getAllNumericalQuestions();
+    const modal = document.querySelector('.modal') as HTMLDialogElement;
+    const openModal = document.querySelector('.logout-header-btn');
+    const closeModal = document.querySelector('.back-btn');
+
+    openModal?.addEventListener('click', () => {
+      modal?.showModal();
+    });
+
+    closeModal?.addEventListener('click', () => {
+      modal?.close();
+    });
   }
 
   form = new FormGroup({
@@ -48,5 +59,12 @@ export class NumericalQuestionComponent implements OnInit {
           console.log(this.questions$);
         });
     }
+  }
+  logout(): any {
+    sessionStorage.setItem('isLogged', 'false');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('hiddenChat');
+    this.router.navigate(['/login']);
   }
 }

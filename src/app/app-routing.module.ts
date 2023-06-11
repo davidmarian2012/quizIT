@@ -4,8 +4,6 @@ import { LoginComponent } from './modules/auth/components/login/login.component'
 import { RegisterComponent } from './modules/auth/components/register/register.component';
 import { DashboardComponent } from './modules/game/components/dashboard/dashboard.component';
 import { ProfileComponent } from './modules/shared/components/profile/profile.component';
-import { QuestionComponent } from './modules/game/components/question/question.component';
-import { NumberQuestionComponent } from './modules/game/components/number-question/number-question.component';
 import { AddQuestionComponent } from './modules/core/components/add-question/add-question.component';
 import { NumericalQuestionComponent } from './modules/core/components/numerical-question/numerical-question.component';
 import { MultiQuestionComponent } from './modules/core/components/multi-question/multi-question.component';
@@ -16,6 +14,7 @@ import { ForgotComponent } from './modules/auth/components/forgot/forgot.compone
 import { WarGameRoundComponent } from './modules/game/components/war-game-round/war-game-round.component';
 import { PracticeGameRoundComponent } from './modules/game/components/practice-game-round/practice-game-round.component';
 import { NotfoundComponent } from './modules/core/components/notfound/notfound.component';
+import { AdminGuard } from './modules/shared/guards/admin.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,17 +28,17 @@ const routes: Routes = [
   {
     path: 'add-question',
     component: AddQuestionComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   {
     path: 'add-numerical',
     component: NumericalQuestionComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   {
     path: 'add-multi',
     component: MultiQuestionComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   { path: 'classic', component: GameRoundComponent, canActivate: [AuthGuard] },
   {
