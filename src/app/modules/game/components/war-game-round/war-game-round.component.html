@@ -3,6 +3,7 @@
     class="questions"
     *ngFor="let q of randomizedMultiAnswerQuestions$ | async; let i = index"
   >
+    <h3 *ngIf="i === questionNumber && i < 15">Question {{ i + 1 }} of 15</h3>
     <app-question
       [title]="q.question"
       [answers]="q.answers"

@@ -1,60 +1,125 @@
 <div class="container">
-    <app-header></app-header>
-    <div class="title-page">
-        <img src="../../../../../assets/profile.png" alt="ribbon" class="ribbon">
+  <app-header></app-header>
+  <div class="title-page">
+    <img src="../../../../../assets/profile.png" alt="ribbon" class="ribbon" />
+  </div>
+
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+
+  <div [formGroup]="form" class="login-container">
+    <dialog class="modal" id="modal">
+      <h2>Are you sure you want to logout?</h2>
+      <div class="buttons">
+        <button autofocus="false" class="logout-btn" (click)="logout()">
+          Logout
+        </button>
+        <button autofocus="false" class="back-btn">Go back</button>
+      </div>
+    </dialog>
+
+    <div class="avatar">
+      <img
+        src="http://localhost:8080/avatar/{{ avatar }}"
+        alt="avatar"
+        (click)="choose()"
+      />
+      <h2>{{ capitalizedUsername }}</h2>
     </div>
-    
-    <div [formGroup]="form" class="login-container">
 
-        <dialog class="modal" id="modal">
-            <h2>Are you sure you want to logout?</h2>
-            <div class="buttons">
-                <button autofocus="false" class="logout-btn" (click)="logout()">Logout</button>
-                <button autofocus="false" class="back-btn">Go back</button>
-            </div>
-        </dialog>
-
-        <div class="avatar"><img src="http://localhost:8080/avatar/{{avatar}}" alt="avatar" (click)="choose()">
-            <h2>{{capitalizedUsername}}</h2>
-        </div>
-
-        <div class="info-row">
-            <label for="username">Rank</label>
-            <label for="username" class="small-label" *ngIf="points < 5">Beginner</label>
-            <label for="username" class="small-label" *ngIf="points >= 5 && points < 50">Enthusiast</label>
-            <label for="username" class="small-label" *ngIf="points >= 50 && points < 100">Lazy Programmer</label>
-            <label for="username" class="small-label" *ngIf="points >= 100 && points < 500">Linux Wizard</label>
-            <label for="username" class="small-label" *ngIf="points >= 500">Scrum Master</label>
-        </div>
-
-        <div class="info-row">
-            <label for="username">Points</label>
-            <label for="username" class="small-label">{{formatNumber(points)}}</label>
-        </div>
-
-        <div class="info-row">
-            <label for="username">Member since</label>
-            <label for="username" class="small-label">{{createdAt}}</label>
-        </div>
-
-        <div class="login-row">
-            <label for="username">Password</label>
-            <input type="password" formControlName="oldpassword" placeholder="Enter your old password">
-
-            <div class="error-message"></div>
-        </div>
-        <div class="login-row">
-            <label for="password">New Password</label>
-            <input type="password" formControlName="newpassword" placeholder="Enter a new password">
-
-            <div class="error-message"></div>
-        </div>
-        <div class="buttons-container">
-            <button type="button" class="login-btn">Change password</button>
-            <button type="button" class="upload-btn" id="upload-btn" (click)="upload()">Upload avatar</button>
-            <button type="button" class="remove-btn" id="remove-btn" (click)="removeAvatar()">Remove avatar</button>
-        </div>
-
-        <input type="file" name="avatar" (input)="fileChosen($event)" (change)="onFileSelected($event)" id='avatarInput' [hidden]="true">
+    <div class="info-row">
+      <label for="username">Rank</label>
+      <label for="username" class="small-label" *ngIf="points < 5"
+        >Beginner</label
+      >
+      <label
+        for="username"
+        class="small-label"
+        *ngIf="points >= 5 && points < 50"
+        >Enthusiast</label
+      >
+      <label
+        for="username"
+        class="small-label"
+        *ngIf="points >= 50 && points < 100"
+        >Lazy Programmer</label
+      >
+      <label
+        for="username"
+        class="small-label"
+        *ngIf="points >= 100 && points < 500"
+        >Linux Wizard</label
+      >
+      <label for="username" class="small-label" *ngIf="points >= 500"
+        >Scrum Master</label
+      >
     </div>
+
+    <div class="info-row">
+      <label for="username">Points</label>
+      <label for="username" class="small-label">{{
+        formatNumber(points)
+      }}</label>
+    </div>
+
+    <div class="info-row">
+      <label for="username">Member since</label>
+      <label for="username" class="small-label">{{ createdAt }}</label>
+    </div>
+
+    <div class="login-row">
+      <label for="username">Password</label>
+      <input
+        type="password"
+        formControlName="oldpassword"
+        placeholder="Enter your old password"
+      />
+
+      <div class="error-message"></div>
+    </div>
+    <div class="login-row">
+      <label for="password">New Password</label>
+      <input
+        type="password"
+        formControlName="newpassword"
+        placeholder="Enter a new password"
+      />
+
+      <div class="error-message"></div>
+    </div>
+    <div class="buttons-container">
+      <button
+        type="button"
+        class="change-btn"
+        id="change-btn"
+        (click)="changePassword()"
+      >
+        Change password
+      </button>
+      <button
+        type="button"
+        class="upload-btn"
+        id="upload-btn"
+        (click)="upload()"
+      >
+        Upload avatar
+      </button>
+      <button
+        type="button"
+        class="remove-btn"
+        id="remove-btn"
+        (click)="removeAvatar()"
+      >
+        Remove avatar
+      </button>
+    </div>
+
+    <input
+      type="file"
+      name="avatar"
+      (input)="fileChosen($event)"
+      (change)="onFileSelected($event)"
+      id="avatarInput"
+      [hidden]="true"
+    />
+  </div>
 </div>

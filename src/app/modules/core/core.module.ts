@@ -7,6 +7,7 @@ import { NumericalQuestionComponent } from './components/numerical-question/nume
 import { MultiQuestionComponent } from './components/multi-question/multi-question.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RankingsComponent } from './components/rankings/rankings.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RankingsComponent } from './components/rankings/rankings.component';
     NumericalQuestionComponent,
     MultiQuestionComponent,
     RankingsComponent,
+    NotfoundComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { RankingsComponent } from './components/rankings/rankings.component';
     NumericalQuestionComponent,
     MultiQuestionComponent,
     RankingsComponent,
+    NotfoundComponent,
   ],
 })
 export class CoreModule {}

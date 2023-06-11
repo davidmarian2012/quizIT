@@ -10,6 +10,19 @@
   background-size: cover;
 }
 
+.questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questions h3 {
+  font-size: 20px;
+  text-shadow: 1px 1px 2px #000;
+  color: #fae100;
+}
+
 .send-arrow {
   width: 70px;
   cursor: pointer;
@@ -25,6 +38,7 @@
   border: 1px solid rgb(202, 199, 38);
   color: #fff;
   margin-bottom: 50px;
+  width: 45vw;
 }
 
 .points-overview {
@@ -66,4 +80,31 @@
 
 .wrong {
   color: rgb(204, 42, 42);
+}
+
+.highlighted {
+  font-size: 20px;
+  text-shadow: 1px 1px 2px #000;
+  color: #fae100;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.results-row {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.correct-answer {
+  color: #b6b6b6;
+  font-size: 14px;
+}
+
+.your-answer {
+  font-size: 14px;
+}
+
+.question-title {
+  font-size: 16px;
+  font-weight: 500;
 }

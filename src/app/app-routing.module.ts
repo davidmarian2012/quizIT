@@ -15,6 +15,7 @@ import { RankingsComponent } from './modules/core/components/rankings/rankings.c
 import { ForgotComponent } from './modules/auth/components/forgot/forgot.component';
 import { WarGameRoundComponent } from './modules/game/components/war-game-round/war-game-round.component';
 import { PracticeGameRoundComponent } from './modules/game/components/practice-game-round/practice-game-round.component';
+import { NotfoundComponent } from './modules/core/components/notfound/notfound.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,19 +25,37 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'q', component: QuestionComponent },
-  { path: 'q2', component: NumberQuestionComponent },
-  { path: 'add-question', component: AddQuestionComponent },
-  { path: 'add-numerical', component: NumericalQuestionComponent },
-  { path: 'add-multi', component: MultiQuestionComponent },
-  { path: 'classic', component: GameRoundComponent },
-  { path: 'extended-war', component: WarGameRoundComponent },
-  { path: 'training', component: PracticeGameRoundComponent },
-  { path: 'rankings', component: RankingsComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'add-question',
+    component: AddQuestionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-numerical',
+    component: NumericalQuestionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-multi',
+    component: MultiQuestionComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'classic', component: GameRoundComponent, canActivate: [AuthGuard] },
+  {
+    path: 'extended-war',
+    component: WarGameRoundComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'training',
+    component: PracticeGameRoundComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'rankings', component: RankingsComponent, canActivate: [AuthGuard] },
   { path: 'reset', component: ForgotComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: '**', pathMatch: 'full', component: LoginComponent },
+  { path: '**', pathMatch: 'full', component: NotfoundComponent },
 ];
 
 @NgModule({

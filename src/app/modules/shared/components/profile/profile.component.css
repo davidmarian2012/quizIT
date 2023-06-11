@@ -68,7 +68,19 @@ input {
   gap: 20px;
 }
 
-.login-btn,
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(80, 126, 53);
+  border: 1px solid rgb(50, 77, 35);
+  padding: 5px;
+  height: 35px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.change-btn,
 .remove-btn {
   cursor: pointer;
   height: 35px;
