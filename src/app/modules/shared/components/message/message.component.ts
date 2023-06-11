@@ -51,7 +51,7 @@ export class MessageComponent implements OnInit {
   deleteMessage(): void {
     this.chatService.deleteMessage(this.message._id).subscribe((res) => {
       console.log('');
+      this.refreshPage.emit(true);
     });
-    this.refreshPage.emit(true);
   }
 }

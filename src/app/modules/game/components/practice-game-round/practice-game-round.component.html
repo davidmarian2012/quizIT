@@ -82,6 +82,7 @@
       alt="results"
       (click)="toResults()"
       class="done-arrow"
+      *ngIf="questionNumber < totalMulti + totalNumerical"
     />
     <img
       src="../../../../../assets/arrow.png"

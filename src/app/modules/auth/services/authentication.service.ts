@@ -66,6 +66,30 @@ export class AuthenticationService {
       );
   }
 
+  resetPassword(
+    username: any,
+    oldpassword: any,
+    newpassword: any
+  ): Observable<any> {
+    return this.httpService
+      .dispatchData({
+        method: HttpMethods.Post,
+        url: '/user/resetpassword',
+        options: {
+          body: {
+            username: username.toLowerCase(),
+            oldpassword: oldpassword,
+            newpassword: newpassword,
+          },
+        },
+      })
+      .pipe(
+        map((resetResult) => {
+          console.log(resetResult);
+        })
+      );
+  }
+
   getDecodedAccessToken(): any {
     try {
       return jwtDecode(this.token);

@@ -15,12 +15,24 @@ export class ProfileComponent implements OnInit {
   points: number = 1;
   createdAt: any;
   avatar = 'avatar.png';
+  loading: boolean = false;
 
   public image: File | undefined;
   public username = sessionStorage.getItem('username') as string;
   public capitalizedUsername =
     this.username.charAt(0).toUpperCase() + this.username.slice(1);
   public user$: Observable<any>;
+
+  form = new FormGroup({
+    oldpassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    newpassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+  });
 
   constructor(
     private router: Router,
@@ -109,13 +121,32 @@ export class ProfileComponent implements OnInit {
     const file = event.target.files[0];
   }
 
-  form = new FormGroup({
-    oldpassword: new FormControl('', [Validators.required]),
-    newpassword: new FormControl('', [Validators.required]),
-  });
-
   formatNumber(num: any) {
     let roundedNum = num.toFixed(1);
     return num % 1 === 0 ? parseInt(roundedNum) : roundedNum;
+  }
+
+  changePassword(): any {
+    this.form.markAllAsTouched();
+
+    const username = sessionStorage.getItem('username') as string;
+    const oldpassword = this.form.get('oldpassword')?.value;
+    const newpassword = this.form.get('newpassword')?.value;
+
+    if (this.form.valid) {
+      this.loading = true;
+
+      this.authService
+        .resetPassword(username, oldpassword, newpassword)
+        .pipe(first())
+        .subscribe(
+          () => {
+            this.loading = false;
+          },
+          () => {
+            this.loading = false;
+          }
+        );
+    }
   }
 }

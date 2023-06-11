@@ -15,6 +15,19 @@
   cursor: pointer;
 }
 
+.questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questions h3 {
+  font-size: 20px;
+  text-shadow: 1px 1px 2px #000;
+  color: #fae100;
+}
+
 .results {
   background-color: rgba(31, 29, 29, 0.89);
   height: 80vh;
@@ -25,6 +38,7 @@
   border: 1px solid rgb(202, 199, 38);
   color: #fff;
   margin-bottom: 50px;
+  width: 45vw;
 }
 
 .points-overview {

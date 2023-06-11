@@ -42,6 +42,22 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.form.markAllAsTouched();
 
+    if (this.form.get('username')) {
+      const usernameControl = this.form.get('username');
+      if (usernameControl?.value) {
+        const trimmedValue = usernameControl.value.trim();
+        usernameControl.setValue(trimmedValue);
+      }
+    }
+
+    if (this.form.get('email')) {
+      const emailControl = this.form.get('email');
+      if (emailControl?.value) {
+        const trimmedValue = emailControl.value.trim();
+        emailControl.setValue(trimmedValue);
+      }
+    }
+
     if (this.form.valid) {
       this.takenEmail = false;
       this.takenUsername = false;
