@@ -57,3 +57,66 @@
   align-items: center;
   gap: 50px;
 }
+
+.modal {
+  background-color: rgba(31, 29, 29, 0.89);
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 2px;
+  border: 1px solid rgb(202, 199, 38);
+  color: #fff;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  width: 25vw;
+  gap: 25px;
+  top: 30vh;
+  left: 37.5vw;
+}
+
+.modal::backdrop {
+  background-color: #000000;
+  opacity: 0.7;
+}
+
+.modal:not([open]) {
+  display: none;
+}
+
+.modal h2 {
+  font-size: 18px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.logout-btn {
+  cursor: pointer;
+  height: 30px;
+  width: 5vw;
+  border-radius: 2px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(201, 190, 41);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: 0.2s;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.back-btn {
+  cursor: pointer;
+  height: 30px;
+  width: 5vw;
+  border-radius: 2px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(184, 184, 184);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: 0.2s;
+  font-size: 12px;
+  font-weight: 500;
+}

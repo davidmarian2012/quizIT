@@ -17,7 +17,19 @@ export class AddQuestionComponent implements OnInit {
     private questionService: QuestionService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const modal = document.querySelector('.modal') as HTMLDialogElement;
+    const openModal = document.querySelector('.logout-header-btn');
+    const closeModal = document.querySelector('.back-btn');
+
+    openModal?.addEventListener('click', () => {
+      modal?.showModal();
+    });
+
+    closeModal?.addEventListener('click', () => {
+      modal?.close();
+    });
+  }
 
   form = new FormGroup({
     question: new FormControl('', [Validators.required]),
@@ -27,4 +39,12 @@ export class AddQuestionComponent implements OnInit {
     fourthanswer: new FormControl('', [Validators.required]),
     correctanswer: new FormControl('', [Validators.required]),
   });
+
+  logout(): any {
+    sessionStorage.setItem('isLogged', 'false');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('hiddenChat');
+    this.router.navigate(['/login']);
+  }
 }
