@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-forgot',
@@ -27,6 +28,26 @@ export class ForgotComponent implements OnInit {
   });
 
   sendRequest(): any {
-    this.success = true;
+    this.form.markAllAsTouched();
+
+    const email = this.form.get('mail')?.value;
+
+    if (this.form.valid && email) {
+      this.loading = true;
+
+      this.authService
+        .forgotPassword(email)
+        .pipe(first())
+        .subscribe(
+          () => {
+            this.loading = false;
+            this.success = true;
+          },
+          () => {
+            console.log('error');
+            this.loading = false;
+          }
+        );
+    }
   }
 }
