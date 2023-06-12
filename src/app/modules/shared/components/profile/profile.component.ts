@@ -42,15 +42,31 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    sessionStorage.setItem('avatar', this.avatar);
+
     const uploadButton = document.getElementById(
       'upload-btn'
     ) as HTMLButtonElement;
     uploadButton.disabled = true;
 
+    const removeButton = document.getElementById(
+      'remove-btn'
+    ) as HTMLButtonElement;
+    removeButton.disabled = true;
+    removeButton.style.cursor = 'unset';
+    removeButton.style.backgroundColor = 'rgba(202, 199, 38, 0.219)';
+
     this.user$.subscribe((user) => {
       this.points = user.points;
       this.avatar = user.avatar;
       this.createdAt = user.createdAt.substring(0, 10);
+      sessionStorage.setItem('avatar', user.avatar);
+
+      if (sessionStorage.getItem('avatar') != 'avatar.png') {
+        removeButton.disabled = false;
+        removeButton.style.cursor = 'pointer';
+        removeButton.style.backgroundColor = 'rgb(202, 199, 38)';
+      }
     });
 
     const modal = document.querySelector('.modal') as HTMLDialogElement;
@@ -83,6 +99,13 @@ export class ProfileComponent implements OnInit {
     this.authService.upload(username, this.image).subscribe(
       () => {
         this.ngOnInit();
+        const uploadButton = document.getElementById(
+          'upload-btn'
+        ) as HTMLButtonElement;
+
+        uploadButton.disabled = true;
+        uploadButton.style.cursor = 'unset';
+        uploadButton.style.backgroundColor = 'rgba(202, 199, 38, 0.219)';
       },
       (error) => {
         console.log(error);
