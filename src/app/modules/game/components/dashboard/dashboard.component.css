@@ -199,3 +199,47 @@ h2 {
   height: 1px;
   background-color: rgb(251, 255, 0);
 }
+
+@media only screen and (max-width: 1200px) {
+  .modal {
+    left: 10vw;
+    width: 80vw;
+  }
+
+  .logout-btn {
+    width: 15vw;
+  }
+
+  .back-btn {
+    width: 15vw;
+  }
+
+  .modes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 20px 0;
+  }
+
+  .game-btn {
+    width: 40vw;
+    height: 90px;
+  }
+
+  .game-btn h1 {
+    font-size: 24px;
+  }
+
+  .rules,
+  .line {
+    display: none;
+  }
+
+  .play-btn {
+    width: 40vw;
+  }
+
+  app-chat {
+    display: none;
+  }
+}

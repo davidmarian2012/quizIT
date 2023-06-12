@@ -70,3 +70,25 @@
   width: 70px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1200px) {
+  .question-container {
+    background: none;
+  }
+
+  .question {
+    padding: 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.562);
+  }
+
+  .answers {
+    width: 100%;
+  }
+
+  .answer {
+    color: #ffee00;
+    text-shadow: -1px -1px 1px black, 1px -1px 1px black, -1px 1px 1px black,
+      1px 1px 1px black;
+  }
+}
