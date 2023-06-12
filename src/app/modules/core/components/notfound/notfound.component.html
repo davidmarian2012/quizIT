@@ -1,6 +1,16 @@
 <div class="container">
   <app-header></app-header>
 
+  <dialog class="modal" id="modal">
+    <h2>Are you sure you want to logout?</h2>
+    <div class="buttons">
+      <button autofocus="false" class="logout-btn" (click)="logout()">
+        Logout
+      </button>
+      <button autofocus="false" class="back-btn">Go back</button>
+    </div>
+  </dialog>
+
   <div class="title-page">
     <img src="../../../../../assets/404.png" alt="ribbon" class="ribbon" />
   </div>

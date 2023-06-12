@@ -154,3 +154,22 @@
   font-size: 12px;
   font-weight: 500;
 }
+
+@media only screen and (max-width: 1200px) {
+  .modal {
+    left: 10vw;
+    width: 80vw;
+  }
+
+  .logout-btn {
+    width: 15vw;
+  }
+
+  .back-btn {
+    width: 15vw;
+  }
+
+  .rankings-container {
+    width: 90vw;
+  }
+}

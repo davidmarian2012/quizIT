@@ -80,3 +80,9 @@
 .wrong {
   color: rgb(204, 42, 42);
 }
+
+@media only screen and (max-width: 1200px) {
+  .results {
+    width: 95vw;
+  }
+}
