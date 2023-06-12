@@ -80,8 +80,7 @@ input {
   font-size: 14px;
 }
 
-.change-btn,
-.remove-btn {
+.change-btn {
   cursor: pointer;
   height: 35px;
   width: 225px;
@@ -95,7 +94,8 @@ input {
   font-size: 14px;
 }
 
-.upload-btn {
+.upload-btn,
+.remove-btn {
   height: 35px;
   width: 225px;
   border-radius: 1px;

@@ -34,6 +34,7 @@ export class ForgotComponent implements OnInit {
 
     if (this.form.valid && email) {
       this.loading = true;
+      this.success = true;
 
       this.authService
         .forgotPassword(email)
@@ -41,10 +42,8 @@ export class ForgotComponent implements OnInit {
         .subscribe(
           () => {
             this.loading = false;
-            this.success = true;
           },
           () => {
-            console.log('error');
             this.loading = false;
           }
         );
